@@ -36,50 +36,32 @@
         </div>
 
         <div class="container-fluid"> 
-            <div class="container my-2">
-                <form class="d-flex">
-                        <input class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
-                        <button class="btn btn-primary" type="submit">Buscar</button>
-                </form>
-            </div>    
-
-            <div class="row d-flex flex-row justify-content-center">
+            <div class="row d-flex flex-row justify-content-center align-content-center height--100">
                 <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-                    <button class="btn d-block w-100 p-0">
+                    <a class="d-block w-100 p-0 link-icon" href="viewUsuarios.php">
                         <div class="card">
                             <div class="container-fluid bg-gray text-center py-4">
-                                <i class="fas fa-bus display-1"></i>
+                                <i class="fas fa-user display-1"></i>
                             </div>
                             <div class="container-fluid bg-gray-dark text-center">
-                                <h5 class="card-title">Ruta 17</h5>
+                                <h5 class="card-title">Usuarios</h5>
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>  
-            </div>
-
-            <div class="d-flex justify-content-center mt-2">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </div>
-
-            
-
+                <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
+                    <a class="d-block w-100 p-0 link-icon" href="viewRutas.php">
+                        <div class="card">
+                            <div class="container-fluid bg-gray text-center py-4">
+                                <i class="fas fa-route display-1"></i>
+                            </div>
+                            <div class="container-fluid bg-gray-dark text-center">
+                                <h5 class="card-title">Rutas</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>  
+            </div>            
         </div>
 
     <!-- Script Bootstrap -->

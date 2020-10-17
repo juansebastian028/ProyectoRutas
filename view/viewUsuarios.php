@@ -8,7 +8,7 @@
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!-- datatables -->
@@ -27,15 +27,15 @@
       </div>
     </nav> 
 
-    <div class="d-flex d-row">
+    <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link" href="#">
+            <a class="vertical-menu__link" href="viewConfiguracion.php">
                 <i class="vertical-menu__icon fas fa-cog"></i>
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link" href="">
+            <a class="vertical-menu__link" href="index.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title"> Rutas</h4>
             </a>
@@ -44,7 +44,7 @@
         <div class="container-fluid">     
             <div class="row p-0">
                 <div class="card ml-3 mr-3 mt-2 mb-4 w-100 text-center">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header text-dark">
                         <h5>Usuarios</h5>
                     </div>
                 </div>
