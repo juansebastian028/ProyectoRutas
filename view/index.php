@@ -21,7 +21,7 @@
       </div>
     </nav> 
 
-    <div class="d-flex d-row">
+    <div class="d-flex d-row main-container">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
             <a class="vertical-menu__link" href="#">
