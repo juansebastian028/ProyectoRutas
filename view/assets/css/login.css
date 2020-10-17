@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+
+body{
+
+	background-image: url(../img/fondoLogin.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+
+}
+
+h1{
+	font-family: arial;
+	text-align: center;
+	font-size:30px !important ;
+	color: black;
+	margin-top: 25px !important ;
+}
+
+.centrardiv{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 100px;
+	width: 370px;
+	height: 450px;
+	background: rgba(230,228,219,0.6);
+	border: solid 3px #E8D9B5;
+}
+
+.moverlabel{
+	margin-top: 30px;
+	margin-left: 13px;
+	font-size: 20px;
+	font-family: arial;
+	color: black;
+}
+
+.form-control{
+	width: 330px !important;
+	margin-left: 13px;
+	
+}
+
+.btn{
+	margin-left: 13px;
+	margin-top: 20px;
+	width: 330px;
+}
+
+
+
+
