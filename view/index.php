@@ -8,7 +8,7 @@
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="assets/css/verticalmenu.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -35,21 +35,56 @@
             </a>
         </div>
 
-        <div class="container-fluid">     
-            <form>
-                <div class="form-inline">
-                    <input class="form-control d-inline-block w-50 m-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
-                    <button class="btn btn-primary d-inline-block" type="submit">Buscar</button>
-                </div>
-            </form>
+        <div class="container-fluid"> 
+            <div class="container my-2">
+                <form class="d-flex">
+                        <input class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                </form>
+            </div>    
+
+            <div class="row d-flex flex-row justify-content-center">
+                <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
+                    <button class="btn d-block w-100 p-0">
+                        <div class="card">
+                            <div class="container-fluid bg-gray text-center py-4">
+                                <i class="fas fa-bus display-1"></i>
+                            </div>
+                            <div class="container-fluid bg-gray-dark text-center">
+                                <h5 class="card-title">Ruta 17</h5>
+                            </div>
+                        </div>
+                    </button>
+                </div>  
+            </div>
+
+            <div class="d-flex justify-content-center mt-2">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item" aria-current="page">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+
+            
 
         </div>
 
-    </div>
-
     <!-- Script Bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
