@@ -1,0 +1,31 @@
+
+.vertical-menu{
+    height: 100vh;
+    width: 8rem;
+    background-color: #e5e5e5;
+}
+
+.vertical-menu__link{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: .5rem 0;
+    color: #222;
+    border: 1px solid #cccccc;
+}
+
+.vertical-menu__link:hover{
+    text-decoration: none;
+    color: #222;
+    background-color: #cccccc;
+}
+
+.vertical-menu__icon{
+    font-size: 4rem;
+}
+
+.vertical-menu__title{
+    margin-top: .5rem;
+    font-size: medium;
+}
