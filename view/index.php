@@ -77,9 +77,6 @@
                     </li>
                 </ul>
             </div>
-
-            
-
         </div>
 
     <!-- Script Bootstrap -->
