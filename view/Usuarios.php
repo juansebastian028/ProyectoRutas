@@ -14,6 +14,9 @@
     <!-- datatables -->
     <link rel="stylesheet" href="assets/dataTables/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/dataTables/css/dataTables.bootstrap4.css">
+    <!-- Alertify -->
+	<link rel="stylesheet" href="assets/alertify/css/alertify.min.css"/>
+	<link rel="stylesheet" href="assets/alertify/css/themes/default.min.css"/>
 </head>
 
 <body>
@@ -65,7 +68,7 @@
                                     <td>Nombre <?= $i ?></td>
                                     <td>Usuario <?= $i ?></td>
                                     <td>
-                                        <button class="btn btn-sm btn-warning">Editar</button>
+                                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
                                     </td>
                                 </tr>
@@ -132,6 +135,9 @@
     
     <script src="assets/dataTables/js/jquery.dataTables.min.js"></script>
     <script src="assets/dataTables/js/dataTables.bootstrap4.js"></script>
+
+    <script src="assets/alertify/alertify.js"></script>
+    
     <script src="assets/js/usuarios.js"></script>
 </body>
 </html>

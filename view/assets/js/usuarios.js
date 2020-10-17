@@ -23,6 +23,16 @@ $(document).ready(function(){
         columnDefs: [
             { "width": "40%", "targets": [0, 1] },
             { "width": "20%", "targets": 2 }
-        ]
+        ],
+        createdRow: function(row, data, index){
+            $(row).find('.btn-danger').on('click', function(){
+                alertify.confirm('¡Advertencia!', '¿Está seguro de eliminar el registro?',
+                    function(){
+                        alertify.success("Registro eliminado exitosamente");
+                    },
+                    function(){ }
+                );
+            });
+        }
     });
 });
