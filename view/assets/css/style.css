@@ -2,7 +2,7 @@ html,body {
     height: 100%;
 }
 
-.main-container{
+.height--100{
     min-height: 100%;
 }
 
@@ -21,10 +21,13 @@ html,body {
     border: 1px solid #cccccc;
 }
 
-.vertical-menu__link:hover{
+.link-icon:hover , .vertical-menu__link:hover{
     text-decoration: none;
     color: #222;
     background-color: #cccccc;
+}
+.link-icon{
+    color: #222;
 }
 
 .vertical-menu__icon{

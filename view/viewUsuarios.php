@@ -24,15 +24,15 @@
       </div>
     </nav> 
 
-    <div class="d-flex d-row main-container">
+    <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link" href="#">
+            <a class="vertical-menu__link" href="viewConfiguracion.php">
                 <i class="vertical-menu__icon fas fa-cog"></i>
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link" href="">
+            <a class="vertical-menu__link" href="index.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title"> Rutas</h4>
             </a>
