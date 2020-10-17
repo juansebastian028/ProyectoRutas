@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- datatables -->
+    <link rel="stylesheet" href="assets/dataTables/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/dataTables/css/dataTables.bootstrap4.css">
 </head>
 
 <body>
@@ -37,7 +40,7 @@
 
         <div class="container-fluid">     
             <div class="row p-0">
-                <div class="card ml-3 mr-3 mt-2 mb-5 w-100 text-center">
+                <div class="card ml-3 mr-3 mt-2 mb-4 w-100 text-center">
                     <div class="card-header bg-primary text-white">
                         <h5>Usuarios</h5>
                     </div>
@@ -46,21 +49,21 @@
                     <button  class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
                 </div>
                 <div class="col-12">
-                    <table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblRutas">
+                    <table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblUsuarios">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Usuarios</th>
-                                <th>acciones</th>
+                                <th>Usuario</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            for($i = 0; $i < 50; $i++){
+                            for($i = 0; $i < 30; $i++){
                                 ?>
                                 <tr>
-                                    <td><?= $i ?></td>
-                                    <td>Trayecto ida <?= $i ?></td>
+                                    <td>Nombre <?= $i ?></td>
+                                    <td>Usuario <?= $i ?></td>
                                     <td>
                                         <button class="btn btn-sm btn-warning">Editar</button>
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
@@ -74,7 +77,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -125,9 +127,11 @@
     </div>
 
     <!-- Script Bootstrap -->
-     <script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-   
-
+    
+    <script src="assets/dataTables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/dataTables/js/dataTables.bootstrap4.js"></script>
+    <script src="assets/js/usuarios.js"></script>
 </body>
 </html>

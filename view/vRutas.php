@@ -40,7 +40,7 @@
 
         <div class="container-fluid">     
             <div class="row p-0">
-                <div class="card ml-3 mr-3 mt-2 mb-5 w-100 text-center">
+                <div class="card ml-3 mr-3 mt-2 mb-4 w-100 text-center">
                     <div class="card-header bg-primary text-white">
                         <h5>Rutas</h5>
                     </div>
@@ -55,7 +55,7 @@
                                 <th>N° Ruta</th>
                                 <th>Trayecto ida</th>
                                 <th>Trayecto vuelta</th>
-                                <th>acciones</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

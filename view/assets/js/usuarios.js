@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#tblRutas').DataTable({
+    $('#tblUsuarios').DataTable({
         language: {
             "decimal": "",
             "emptyTable": "No hay información",
@@ -21,8 +21,8 @@ $(document).ready(function(){
             }
         },
         columnDefs: [
-            { "width": "25%", "targets": [0, 1, 2] },
-            { "width": "20%", "targets": 3 }
+            { "width": "40%", "targets": [0, 1] },
+            { "width": "20%", "targets": 2 }
         ]
     });
 });
