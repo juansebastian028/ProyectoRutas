@@ -29,3 +29,11 @@
     margin-top: .5rem;
     font-size: medium;
 }
+
+.bg-gray-dark{
+    background-color: #C4C4C4;
+}
+
+.bg-gray{
+    background-color: #E0E0E0;
+}
