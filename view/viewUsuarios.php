@@ -43,11 +43,11 @@
 
         <div class="container-fluid">     
             <div class="row p-0">
-                <div class="card ml-3 mr-3 mt-2 mb-4 w-100 text-center">
-                    <div class="card-header text-dark">
-                        <h5>Usuarios</h5>
-                    </div>
-                </div>
+                <div class="bg-light ml-3 mr-3 mt-2 mb-4 w-100 text-center">
+					<div class="text-dark">
+						<h5 class="display-4">Usuarios</h5>
+					</div>
+				</div>
                 <div class="col-2 mb-4">
                     <button  class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
                 </div>

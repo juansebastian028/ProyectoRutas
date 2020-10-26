@@ -9,30 +9,24 @@
 </head>
 <body>
 
-	<form action="index.php"  method="POST" >
-		
-		<div class="centrardiv">
+
+	<div class="box">
+		<form class="form" action="index.php"  method="POST">
 			
-			<h1>Iniciar sesión</h1>
+			<div>
+				<h1 class="text-center h2">Iniciar sesión</h1>
 
+				<label for="lbusuario">Usuario</label>
+				<input class="form-control" type="text"  id="lbusuario" name="txtusuario" placeholder="Ingrese su nombre de usuario" maxlength="20" minlength="1">
 			
-			<label class="moverlabel" for="lbusuario">Usuario</label>
-			<input class="form-control" type="text"  id="lbusuario" name="txtusuario" placeholder="Ingrese su nombre de usuario"
-			maxlength="20" minlength="1">
-			
-			
+				<label for="lbpassword">Contraseña</label>
+				<input class="form-control" type="password" id="lbpassword" name="txtpassword" 
+				placeholder="Ingrese su contraseña" maxlength="20" minlength="1">
 
-			<label class="moverlabel" for="lbpassword">Contraseña</label>
-			<input class="form-control" type="password" id="lbpassword" name="txtpassword" 
-			placeholder="Ingrese su contraseña" maxlength="20" minlength="1">
+				<input class="btn btn-primary btn-block my-2" type="submit" name="ingresar" value="Ingresar">
+			</div>
 
-			<input class="btn btn-primary" type="submit" name="ingresar" value="Ingresar">
-		</div>
-
-	</form>
-
-
-
-	
+		</form>
+	</div>
 </body>
 </html>
