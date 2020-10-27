@@ -43,8 +43,8 @@
                             <div class="container-fluid bg-gray text-center py-4">
                                 <i class="fas fa-user display-1"></i>
                             </div>
-                            <div class="container-fluid bg-gray-dark text-center">
-                                <h5 class="card-title">Usuarios</h5>
+                            <div class="container-fluid bg-gray-dark text-center py-2">
+                                <h5 class="card-title mb-0">Usuarios</h5>
                             </div>
                         </div>
                     </a>
@@ -55,8 +55,8 @@
                             <div class="container-fluid bg-gray text-center py-4">
                                 <i class="fas fa-route display-1"></i>
                             </div>
-                            <div class="container-fluid bg-gray-dark text-center">
-                                <h5 class="card-title">Rutas</h5>
+                            <div class="container-fluid bg-gray-dark text-center py-2">
+                                <h5 class="card-title mb-0">Rutas</h5>
                             </div>
                         </div>
                     </a>

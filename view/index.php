@@ -50,8 +50,8 @@
                             <div class="container-fluid bg-gray text-center py-4">
                                 <i class="fas fa-bus display-1"></i>
                             </div>
-                            <div class="container-fluid bg-gray-dark text-center">
-                                <h5 class="card-title">Ruta 17</h5>
+                            <div class="container-fluid bg-gray-dark text-center py-2">
+                                <h5 class="card-title mb-0">Ruta 17</h5>
                             </div>
                         </div>
                     </button>
