@@ -11,7 +11,7 @@
 
 
 	<div class="box">
-		<form class="form" action="index.php"  method="POST">
+		<form class="form" action="rutas/index.php"  method="POST">
 			
 			<div>
 				<h1 class="text-center h2">Iniciar sesión</h1>

@@ -1,3 +1,7 @@
+<?php
+    require('../../controller/validarURL.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>  </title>
     <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -16,6 +20,7 @@
 <body>
     <!-- Nav -->
     <nav class="navbar navbar-dark bg-dark">
+    <a class="btn btn-outline-light" href="index.php">Volver</a>
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
       </div>
@@ -24,12 +29,12 @@
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link" href="viewConfiguracion.php">
+            <a class="vertical-menu__link" href="../configuracion/viewConfiguracion.php">
                 <i class="vertical-menu__icon fas fa-cog"></i>
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link" href="index.php">
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["SERVER_NAME"], $_SERVER["REQUEST_URI"],"rutas") ? 'is-active':'' ?>" href="index.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title">Rutas</h4>
             </a>
@@ -77,8 +82,8 @@
         </div>
 
     <!-- Script Bootstrap -->
-    <script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

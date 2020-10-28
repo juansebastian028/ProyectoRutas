@@ -1,14 +1,19 @@
+<?php
+require('../../controller/validarURL.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>  </title>
+    <title> </title>
     <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -16,26 +21,26 @@
 <body>
     <!-- Nav -->
     <nav class="navbar navbar-dark bg-dark">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
-      </div>
-    </nav> 
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
+        </div>
+    </nav>
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link" href="viewConfiguracion.php">
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["SERVER_NAME"], $_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
                 <i class="vertical-menu__icon fas fa-cog"></i>
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link" href="index.php">
+            <a class="vertical-menu__link" href="../rutas/index.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title">Rutas</h4>
             </a>
         </div>
 
-        <div class="container-fluid"> 
+        <div class="container-fluid">
             <div class="row d-flex flex-row justify-content-center align-content-center height--100">
                 <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
                     <a class="d-block w-100 p-0 link-icon" href="viewUsuarios.php">
@@ -48,7 +53,7 @@
                             </div>
                         </div>
                     </a>
-                </div>  
+                </div>
                 <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
                     <a class="d-block w-100 p-0 link-icon" href="viewRutas.php">
                         <div class="card">
@@ -60,13 +65,14 @@
                             </div>
                         </div>
                     </a>
-                </div>  
-            </div>            
+                </div>
+            </div>
         </div>
 
-    <!-- Script Bootstrap -->
-    <script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Script Bootstrap -->
+        <script src="../assets/bootstrap/js/jquery-3.5.1.min.js"></script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
