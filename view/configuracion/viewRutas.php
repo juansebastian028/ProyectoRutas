@@ -36,7 +36,7 @@ require('../../controller/validarURL.php');
 	<div class="d-flex d-row">
 		<!-- Vertical Menu -->
 		<div class="vertical-menu">
-			<a class="vertical-menu__link <?= validateRoute($_SERVER["SERVER_NAME"], $_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
+			<a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
 				<i class="vertical-menu__icon fas fa-cog"></i>
 				<h4 class="vertical-menu__title">Configuración</h4>
 			</a>

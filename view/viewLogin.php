@@ -8,8 +8,6 @@
 	<title>Login</title>
 </head>
 <body>
-
-
 	<div class="box">
 		<form class="form" action="rutas/index.php"  method="POST">
 			
