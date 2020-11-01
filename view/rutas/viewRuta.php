@@ -34,7 +34,7 @@
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link <?= validateRoute($_SERVER["SERVER_NAME"], $_SERVER["REQUEST_URI"],"rutas") ? 'is-active':'' ?>" href="index.php">
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"],"rutas") ? 'is-active':'' ?>" href="index.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title">Rutas</h4>
             </a>

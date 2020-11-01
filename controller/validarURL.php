@@ -5,7 +5,7 @@
 
             $url = "http://" . $servername . $request_url;
             
-            if (strpos($url, "http://$servername/view/$foldername/") !== false) {
+            if (strpos($url, "$foldername") !== false) {
                 $found = true;
                 
             }else{
