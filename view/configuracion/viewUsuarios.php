@@ -1,55 +1,61 @@
+<?php
+require('../../controller/validarURL.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Usuarios</title>
     <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!-- datatables -->
-    <link rel="stylesheet" href="assets/dataTables/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="assets/dataTables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="../assets/dataTables/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/dataTables/css/dataTables.bootstrap4.css">
     <!-- Alertify -->
-	<link rel="stylesheet" href="assets/alertify/css/alertify.min.css"/>
-	<link rel="stylesheet" href="assets/alertify/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="../assets/alertify/css/alertify.min.css" />
+    <link rel="stylesheet" href="../assets/alertify/css/themes/default.min.css" />
 </head>
 
 <body>
     <!-- Nav -->
     <nav class="navbar navbar-dark bg-dark">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
-      </div>
-    </nav> 
+    <a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
+        </div>
+    </nav>
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link" href="viewConfiguracion.php">
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
                 <i class="vertical-menu__icon fas fa-cog"></i>
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link" href="index.php">
+            <a class="vertical-menu__link" href="../rutas/index.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title"> Rutas</h4>
             </a>
         </div>
 
-        <div class="container-fluid">     
+        <div class="container-fluid">
             <div class="row p-0">
-                <div class="card ml-3 mr-3 mt-2 mb-4 w-100 text-center">
-                    <div class="card-header text-dark">
-                        <h5>Usuarios</h5>
+                <div class="bg-light ml-3 mr-3 mt-2 mb-4 w-100 text-center">
+                    <div class="text-dark">
+                        <h5 class="display-4">Usuarios</h5>
                     </div>
                 </div>
                 <div class="col-2 mb-4">
-                    <button  class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
                 </div>
                 <div class="col-12">
                     <table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblUsuarios">
@@ -62,8 +68,8 @@
                         </thead>
                         <tbody>
                             <?php
-                            for($i = 0; $i < 30; $i++){
-                                ?>
+                            for ($i = 0; $i < 30; $i++) {
+                            ?>
                                 <tr>
                                     <td>Nombre <?= $i ?></td>
                                     <td>Usuario <?= $i ?></td>
@@ -72,7 +78,7 @@
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
                                     </td>
                                 </tr>
-                                <?php
+                            <?php
                             }
                             ?>
                         </tbody>
@@ -92,29 +98,37 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="frm" action="">
+<<<<<<< HEAD:view/viewUsuarios.php
+                    
                         
+=======
+                    <form action="" id="form_usuario" >
+
+>>>>>>> e1ff3038ba16ce738279795a5603eea2975e65cf:view/configuracion/viewUsuarios.php
                         <label for="">Cedula</label>
-                        <input class="form-control tamaño_input " type="text"  pattern="^\d{10}$" placeholder="Ingrese su Cedula" title="El número de cedula debe tener 10 dígitos"> <br>
+                        <input class="form-control tamaño_input " type="text"  pattern="^\d{10}$" placeholder="Ingrese su Cedula" title="El número de cedula debe tener 10 dígitos" id="Cedula-usuario" > <br>
 
                         <label for="">Nombre</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su nombre">
+                        <input class="form-control" type="text" placeholder="Ingrese su nombre"
+                         id="Nombre-Usuario" >
                         <br>
 
                         <label for="">Apellido</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Apellido">
+                        <input class="form-control" type="text" placeholder="Ingrese su Apellido"
+                         id="Apellido-Usuario">
                         <br>
 
                         <label for="">Usuario</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario">
+                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" id="Nombre_De_Usuario" >
                         <br>
 
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Contraseña">
+                        <input class="form-control" type="text" placeholder="Ingrese su Contraseña"
+                         id="Contraseña-Usuario">
                         <br>
 
                         <label for="">Selecione su Perfil</label>
-                        <select class="custom-select" name="perfilUsuario" id="">
+                        <select class="custom-select" name="perfilUsuario" id="Perfil-Usuario">
                             <option value="">Admisnistrador</option>
                             <option value="">Usuario General</option>
                         </select>
@@ -123,21 +137,23 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" form="frm" class="btn btn-primary">Registrar</button>
+                    <button type="submit" form="frm" onclick="Registrar_Usuario();" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Script Bootstrap -->
-    <script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    
-    <script src="assets/dataTables/js/jquery.dataTables.min.js"></script>
-    <script src="assets/dataTables/js/dataTables.bootstrap4.js"></script>
+    <script src="../assets/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/alertify/alertify.js"></script>
-    
-    <script src="assets/js/usuarios.js"></script>
+    <script src="../assets/dataTables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/dataTables/js/dataTables.bootstrap4.js"></script>
+
+    <script src="../assets/alertify/alertify.js"></script>
+
+    <script src="../assets/js/usuarios.js"></script>
+
 </body>
+
 </html>

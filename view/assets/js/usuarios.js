@@ -36,3 +36,30 @@ $(document).ready(function(){
         }
     });
 });
+
+function Registrar_Usuario(){
+
+    var form = $('#form_usuario')[0];
+    var datos = new FormData(form);
+    
+    console.log(datos);
+
+    $.ajax({
+
+        data: datos, 
+        url:'../../controller/registrar_mascota.php', 
+        type:'POST', 
+        success:function(data){
+            console.log(data);
+            alert("se creo correctamente");
+        },
+        error:function(error){
+            console.log(error);
+        }
+
+    }
+    )
+
+
+
+}

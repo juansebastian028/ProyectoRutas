@@ -24,8 +24,12 @@ html,body {
 .link-icon:hover , .vertical-menu__link:hover{
     text-decoration: none;
     color: #222;
+}
+
+.is-active{
     background-color: #cccccc;
 }
+
 .link-icon{
     color: #222;
 }
