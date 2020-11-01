@@ -92,10 +92,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form id="frm" action="">
                         
                         <label for="">Cedula</label>
-                        <input class="form-control tamaño_input " type="number" placeholder="Ingrese su Cedula"> <br>
+                        <input class="form-control tamaño_input " type="text"  pattern="^\d{10}$" placeholder="Ingrese su Cedula" title="El número de cedula debe tener 10 dígitos"> <br>
 
                         <label for="">Nombre</label>
                         <input class="form-control" type="text" placeholder="Ingrese su nombre">
@@ -123,7 +123,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" onclick="" class="btn btn-primary">Registrar</button>
+                    <button type="submit" form="frm" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
