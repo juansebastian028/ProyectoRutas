@@ -10,7 +10,6 @@
 <body>
 	<div class="box">
 		<form class="form" action="rutas/index.php"  method="POST">
-			
 			<div>
 				<h1 class="text-center h2">Iniciar sesión</h1>
 
@@ -21,10 +20,17 @@
 				<input class="form-control" type="password" id="lbpassword" name="txtpassword" 
 				placeholder="Ingrese su contraseña" maxlength="20" minlength="1">
 
-				<input class="btn btn-primary btn-block my-2" type="submit" name="ingresar" value="Ingresar">
+				<input class="btn btn-primary btn-block my-2" type="submit" id="ingresar" name="ingresar" value="Ingresar">
 			</div>
-
 		</form>
 	</div>
+
+	<!-- Script Bootstrap -->
+	<script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="assets/alertify/alertify.js"></script>
+
+	<script src="assets/js/login.js"></script>
 </body>
 </html>
