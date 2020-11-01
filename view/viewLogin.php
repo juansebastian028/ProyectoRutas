@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="box">
-		<form class="form" action="rutas/index.php"  method="POST">
+		<form class="form" id="form" method="POST">
 			
 			<div>
 				<h1 class="text-center h2">Iniciar sesión</h1>
@@ -26,5 +26,7 @@
 
 		</form>
 	</div>
+
+	<script src="../assets/bootstrap/js/jquery-3.5.1.min.js"></script>
 </body>
 </html>
