@@ -25,7 +25,6 @@
 		</form>
 	</div>
 
-	<!-- Script Bootstrap -->
 	<script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
