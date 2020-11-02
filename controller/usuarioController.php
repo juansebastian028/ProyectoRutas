@@ -4,7 +4,7 @@
     $opcion = $_PSOT['opcion'];
 
     if($opcion === "login"){
-        
+
         $username = $_POST["usuario"];
         $password = $_POST["password"];
     
@@ -21,6 +21,8 @@
         }else{
             json_encode("Nombre de usuario o contraseña incorrecta");
         }
+    }else if($opcion === "registrarse"){
+        
     }
 
 

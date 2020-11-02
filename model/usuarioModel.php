@@ -24,7 +24,7 @@
             return $result->num_rows;
         }
     }
-
+    
     class Admin extends Usuario{
         public function __construct()
         {
@@ -32,7 +32,7 @@
         }
 
         public function registrarUsuario(){
-            
+
         }
     }
 ?>

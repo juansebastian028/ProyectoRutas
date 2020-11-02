@@ -6,7 +6,7 @@ $('#ingresar').on('click', function(e){
 	formData.append('opcion', 'login');
 
 	$.ajax({
-		url: '../controller/loginController.php',
+		url: '../../controller/loginController.php',
 		type: 'post',
 		data: formData,
 		processData: false,
