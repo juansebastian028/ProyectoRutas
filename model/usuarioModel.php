@@ -57,17 +57,49 @@
             parent::__construct();
         }
 
-        public function registrarUsuario($nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
-            $perfilUsuario){
+        public function registrarUsuario($nombre,$apellido,$nombreUsuario,$contrasenaUsuario,$perfilId){
 
-            $Registrar_Usuario = "INSERT INTO usuario (Nombre, Apellido, Usuario, Contrasena, PerfilId) VALUES (?,?,?,?,?)";
+            $sql = "INSERT INTO usuario (Nombre, Apellido, Usuario, Contrasena, PerfilId) VALUES (?,?,?,?,?)";
 
-            $result = $this->db->prepare($Registrar_Usuario);
+            $result = $this->db->prepare($sql);
 
             $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
-            intval($perfilUsuario));
+            intval($perfilId));
 
             return $result->execute();
+        }
+
+        public function actualizarUsuario($idUsuario,$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
+        $perfilId){
+            $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Contrasena=?, Perfilid=? WHERE Usuarioid=?";
+
+            $result = $this->db->prepare($sql);
+
+            $result->bind_param("ssssii",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
+            intval($perfilId),$idUsuario);
+
+            return $result->execute();
+        }
+
+        public function getUsuarios(){
+            $sql = "SELECT u.Usuarioid, u.Nombre, u.Apellido, u.Usuario, u.Contrasena, p.Perfilid, p.Nombre AS Perfil FROM usuario u INNER JOIN perfil p ON u.Perfilid=p.Perfilid";
+            
+            if($exec_query = $this->db->query($sql)){
+    
+                $arr= $exec_query->fetch_all(MYSQLI_ASSOC);
+
+                return $arr;
+            }
+        }
+
+        public function eliminarUsuario($id){
+            $sql = "DELETE FROM usuario WHERE Usuarioid=$id";
+
+            if ($this->db->query($sql)) {
+                return true;
+             } else {
+                return false;
+             }
         }
     }
 ?>

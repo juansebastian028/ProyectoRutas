@@ -1,14 +1,16 @@
 <?php
     require('../model/UsuarioModel.php');
-
+    //var_dump($_POST);
     $opcion = $_POST['opcion'];
+
+    $admin = new Admin();
+    $usuario = new Usuario();
 
     if($opcion === "login"){
 
         $username = $_POST["usuario"];
         $password = $_POST["password"];
-    
-        $usuario = new Usuario();
+        
         $esValido = $usuario->validarUsuario($username,$password);
         
         if($esValido){
@@ -21,17 +23,32 @@
         
     }elseif ($opcion === "registrarse") {
 
-        $Nombre_Usuario = $_POST['Nombre-Usuario'];
-        $Apellido_Usuario = $_POST['Apellido-Usuario'];
-        $Nombre_De_Usuario = $_POST['Nombre_De_Usuario'];
-        $Contraseña_Usuario = $_POST['Contraseña-Usuario'];
-        $Perfil_Usuario = $_POST['perfilUsuario'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $usuario = $_POST['usuario'];
+        $contrasena = $_POST['contrasena'];
+        $perfilId = $_POST['perfilId'];
 
-        $Contraseña_encriptada = password_hash($Contraseña_Usuario, PASSWORD_DEFAULT);
+        $ContrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
-        $admin = new Admin();
+        echo $admin->registrarUsuario($nombre,$apellido,$usuario,$ContraseñaEncriptada,$perfilId);
 
-        echo $admin->registrarUsuario($Nombre_Usuario,$Apellido_Usuario,$Nombre_De_Usuario,$Contraseña_encriptada,$Perfil_Usuario);
+    }elseif ($opcion === "consulta") {
 
-        
+        echo '{"data": '.json_encode($admin->getUsuarios()).'}';
+    
+    }elseif ($opcion === "eliminar"){
+        $id = json_decode($_POST['id']);
+        echo $admin->eliminarUsuario($id);
+
+    }elseif($opcion === "actualizar"){
+
+        $usuarioId = $_POST['usuarioId'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $usuario = $_POST['usuario'];
+        $contrasena = $_POST['contrasena'];
+        $perfilId = $_POST['perfilId'];
+    
+        echo $admin->actualizarUsuario($usuarioId,$nombre,$apellido,$usuario,$contrasena,$perfilId);
     }
