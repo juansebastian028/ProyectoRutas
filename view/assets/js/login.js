@@ -3,6 +3,7 @@ $('#ingresar').on('click', function(e){
 
 	var form = $('#form')[0];
 	var formData = new FormData(form);
+	formData.append('opcion', 'login');
 
 	$.ajax({
 		url: '../controller/loginController.php',

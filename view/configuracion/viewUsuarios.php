@@ -98,46 +98,36 @@ require('../../controller/validarURL.php');
                     </button>
                 </div>
                 <div class="modal-body">
-<<<<<<< HEAD:view/viewUsuarios.php
-                    
-                        
-=======
-                    <form action="" id="form_usuario" >
-
->>>>>>> e1ff3038ba16ce738279795a5603eea2975e65cf:view/configuracion/viewUsuarios.php
-                        <label for="">Cedula</label>
-                        <input class="form-control tamaño_input " type="text"  pattern="^\d{10}$" placeholder="Ingrese su Cedula" title="El número de cedula debe tener 10 dígitos" id="Cedula-usuario" > <br>
-
+                    <form action="" id="frm" >
                         <label for="">Nombre</label>
                         <input class="form-control" type="text" placeholder="Ingrese su nombre"
-                         id="Nombre-Usuario" >
+                         name="Nombre-Usuario" >
                         <br>
 
                         <label for="">Apellido</label>
                         <input class="form-control" type="text" placeholder="Ingrese su Apellido"
-                         id="Apellido-Usuario">
+                         name="Apellido-Usuario">
                         <br>
 
                         <label for="">Usuario</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" id="Nombre_De_Usuario" >
+                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" name="Nombre_De_Usuario" autocomplete="off">
                         <br>
 
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Contraseña"
-                         id="Contraseña-Usuario">
+                        <input class="form-control" type="password" placeholder="Ingrese su Contraseña" name="Contraseña-Usuario" autocomplete="off">
                         <br>
 
                         <label for="">Selecione su Perfil</label>
-                        <select class="custom-select" name="perfilUsuario" id="Perfil-Usuario">
-                            <option value="">Admisnistrador</option>
-                            <option value="">Usuario General</option>
+                        <select class="custom-select" name="perfilUsuario">
+                            <option value="1">Admisnistrador</option>
+                            <option value="2">Usuario General</option>
                         </select>
 
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" form="frm" onclick="Registrar_Usuario();" class="btn btn-primary">Registrar</button>
+                    <button type="submit" form="frm" id="evenbutton" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
