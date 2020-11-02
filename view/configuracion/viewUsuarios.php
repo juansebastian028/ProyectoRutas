@@ -61,26 +61,16 @@ require('../../controller/validarURL.php');
                     <table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblUsuarios">
                         <thead class="bg-primary text-white">
                             <tr>
+                                <th>Id</th>
                                 <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th>Usuario</th>
+                                <th>Perfil</th>
+                                <th>Perfil Id</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            for ($i = 0; $i < 30; $i++) {
-                            ?>
-                                <tr>
-                                    <td>Nombre <?= $i ?></td>
-                                    <td>Usuario <?= $i ?></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -92,31 +82,32 @@ require('../../controller/validarURL.php');
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registrar Usuario</h5>
+                    <h5 class="modal-title" id="tituloModal">Registrar Usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form action="" id="frm">
+                        <input type="hidden" name="usuarioId">
                         <label for="">Nombre</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su nombre" name="Nombre-Usuario">
+                        <input class="form-control" type="text" placeholder="Ingrese su nombre" name="nombre">
                         <br>
 
                         <label for="">Apellido</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Apellido" name="Apellido-Usuario">
+                        <input class="form-control" type="text" placeholder="Ingrese su Apellido" name="apellido">
                         <br>
 
                         <label for="">Usuario</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" name="Nombre_De_Usuario" autocomplete="off">
+                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" name="usuario" autocomplete="off">
                         <br>
 
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="password" placeholder="Ingrese su Contraseña" name="Contraseña-Usuario" autocomplete="off">
+                        <input class="form-control" type="password" placeholder="Ingrese su Contraseña" name="contrasena" autocomplete="off">
                         <br>
 
                         <label for="">Selecione su Perfil</label>
-                        <select class="custom-select" name="perfilUsuario">
+                        <select class="custom-select" name="perfilId">
                             <option value="1">Admisnistrador</option>
                             <option value="2">Usuario General</option>
                         </select>
