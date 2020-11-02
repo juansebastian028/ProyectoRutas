@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="assets/css/login.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<title>Login</title>
+	<!-- Alertify -->
+	<link rel="stylesheet" href="assets/alertify/css/alertify.min.css" />
+    <link rel="stylesheet" href="assets/alertify/css/themes/default.min.css" />
 </head>
 <body>
 	<div class="box">

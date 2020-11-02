@@ -1,7 +1,7 @@
 <?php 
     class Usuario{
 
-        public $db;
+        protected $db;
 
         public function __construct()
         {
@@ -13,19 +13,45 @@
 
         public function validarUsuario($username,$password){
             
-            $sql = 'SELECT * FROM usuario WHERE Usuario = ? AND Contrasena=?';
+            $password_ecriptada = $this->getContrasena($username);
 
-            $result = $this->db->prepare($sql);
+            $sql = 'SELECT * FROM usuario WHERE Usuario = ?';
 
-            $result->bind_param("ss",$username,$password);
+            $stmt= $this->db->prepare($sql);
 
-            $result->execute();
-            $result->store_result();
-            return $result->num_rows;
+            $stmt ->bind_param("s",$username);
+
+            $stmt ->execute();
+            $user = $stmt->get_result()->fetch_assoc();
+
+            if($user && password_verify($password,$password_ecriptada)){
+                
+                return true;
+            }else{
+
+                return false;
+            }
+        
+        }
+        
+        private function getContrasena($username){
+
+            $sql = "SELECT Contrasena FROM usuario WHERE Usuario= ?";
+
+            $stmt= $this->db->prepare($sql);
+
+            $stmt ->bind_param("s",$username);
+
+            $stmt ->execute();
+            $password = $stmt->get_result()->fetch_assoc();
+
+            return $password['Contrasena'];
+            
         }
     }
-
+    
     class Admin extends Usuario{
+
         public function __construct()
         {
             parent::__construct();
