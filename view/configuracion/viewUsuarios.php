@@ -142,7 +142,7 @@ require('../../controller/validarURL.php');
 
     <script src="../assets/alertify/alertify.js"></script>
 
-    <script src="../assets/js/usuarios.js"></script>
+    <script src="../assets/js/configuracion/usuarios.js"></script>
 
 </body>
 
