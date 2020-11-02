@@ -69,6 +69,23 @@
             return $result->execute();
         }
 
+<<<<<<< HEAD
+        public function registrarRuta($nRuta,$nPlaca){
+
+            $Registrar_Ruta = "INSERT INTO ruta (Numero,Placa) VALUES (?,?)";
+
+            $result = $this->db->prepare($Registrar_Ruta);
+
+            $result->bind_param("is",$nRuta,$nPlaca);
+
+            return $result->execute();
+
+
+
+        }
+
+
+=======
         public function actualizarUsuario($idUsuario,$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
         $perfilId){
             $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Contrasena=?, Perfilid=? WHERE Usuarioid=?";
@@ -101,5 +118,6 @@
                 return false;
              }
         }
+>>>>>>> 32633e7f4d0aefbd8e36eb4f723aa720c6febbbb
     }
 ?>

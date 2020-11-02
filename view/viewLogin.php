@@ -14,7 +14,7 @@
 	<div class="box">
 		<form class="form" id="form" method="POST">
 			<div>
-				<h1 class="text-center h2">Iniciar sesión</h1>
+				<h1 class="text-center h2">Iniciar sesión </h1>
 
 				<label for="usuario">Usuario</label>
 				<input class="form-control" type="text" name="usuario" placeholder="Ingrese su nombre de usuario" maxlength="20" minlength="1">
@@ -32,6 +32,10 @@
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 	<script src="assets/alertify/alertify.js"></script>
+
+	<script>
+		var $URL = '<?= "http://" . $_SERVER['SERVER_NAME'] ?>';
+	</script>
 
 	<script src="assets/js/login.js"></script>
 </body>
