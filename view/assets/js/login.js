@@ -1,17 +1,22 @@
 $('#ingresar').on('click', function(e){
     e.preventDefault();
 
-	var form = $('#frm')[0];
+	var form = $('#form')[0];
 	var formData = new FormData(form);
+	formData.append('opcion', 'login');
 
 	$.ajax({
-		url: '../controller/login.php',
+		url: '../../controller/usuarioController.php',
 		type: 'post',
 		data: formData,
 		processData: false,
 		contentType: false,
 		success: function(resp){
-            console.log(resp);
+			if (resp) {
+				location.href ="http://localhost:3000/view/rutas/viewRutas.php";
+            }else{
+                alertify.error("Usuario o contraseña incorrecta");
+            }
 		},
 		error: function(error){
 			console.log(error);

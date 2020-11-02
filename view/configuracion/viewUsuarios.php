@@ -27,7 +27,7 @@ require('../../controller/validarURL.php');
 <body>
     <!-- Nav -->
     <nav class="navbar navbar-dark bg-dark">
-    <a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
+        <a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
         </div>
@@ -41,7 +41,7 @@ require('../../controller/validarURL.php');
                 <h4 class="vertical-menu__title">Configuración</h4>
             </a>
 
-            <a class="vertical-menu__link" href="../rutas/index.php">
+            <a class="vertical-menu__link" href="../rutas/viewRutas.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title"> Rutas</h4>
             </a>
@@ -61,26 +61,16 @@ require('../../controller/validarURL.php');
                     <table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblUsuarios">
                         <thead class="bg-primary text-white">
                             <tr>
+                                <th>Id</th>
                                 <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th>Usuario</th>
+                                <th>Perfil</th>
+                                <th>Perfil Id</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            for ($i = 0; $i < 30; $i++) {
-                            ?>
-                                <tr>
-                                    <td>Nombre <?= $i ?></td>
-                                    <td>Usuario <?= $i ?></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -92,44 +82,41 @@ require('../../controller/validarURL.php');
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registrar Usuario</h5>
+                    <h5 class="modal-title" id="tituloModal">Registrar Usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
-
-                        <label for="">Cedula</label>
-                        <input class="form-control tamaño_input " type="number" placeholder="Ingrese su Cedula"> <br>
-
+                    <form action="" id="frm">
+                        <input type="hidden" name="usuarioId">
                         <label for="">Nombre</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su nombre">
+                        <input class="form-control" type="text" placeholder="Ingrese su nombre" name="nombre">
                         <br>
 
                         <label for="">Apellido</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Apellido">
+                        <input class="form-control" type="text" placeholder="Ingrese su Apellido" name="apellido">
                         <br>
 
                         <label for="">Usuario</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario">
+                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" name="usuario" autocomplete="off">
                         <br>
 
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Contraseña">
+                        <input class="form-control" type="password" placeholder="Ingrese su Contraseña" name="contrasena" autocomplete="off">
                         <br>
 
                         <label for="">Selecione su Perfil</label>
-                        <select class="custom-select" name="perfilUsuario" id="">
-                            <option value="">Admisnistrador</option>
-                            <option value="">Usuario General</option>
+                        <select class="custom-select" name="perfilId">
+                            <option value="1">Admisnistrador</option>
+                            <option value="2">Usuario General</option>
                         </select>
 
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" onclick="" class="btn btn-primary">Registrar</button>
+                    <button type="submit" form="frm" id="evenbutton" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
@@ -144,7 +131,8 @@ require('../../controller/validarURL.php');
 
     <script src="../assets/alertify/alertify.js"></script>
 
-    <script src="../assets/js/usuarios.js"></script>
+    <script src="../assets/js/configuracion/usuarios.js"></script>
+
 </body>
 
 </html>
