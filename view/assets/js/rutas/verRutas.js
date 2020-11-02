@@ -1,3 +1,5 @@
+const $template = document.getElementById("crud-template").content,
+$fragment = document.createDocumentFragment();
 $(document).ready(function(){
 
     $.ajax({
@@ -6,7 +8,7 @@ $(document).ready(function(){
 		processData: false,
 		contentType: false,
 		success: function(resp){
-            console.log(resp);
+			console.log(resp);
 		},
 		error: function(error){
 			console.log(error);

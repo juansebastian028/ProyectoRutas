@@ -27,7 +27,7 @@ require('../../controller/validarURL.php');
 <body>
 	<!-- Nav -->
 	<nav class="navbar navbar-dark bg-dark">
-	<a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
+		<a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link" href="#">Iniciar Sesión</a>
 		</div>
@@ -41,7 +41,7 @@ require('../../controller/validarURL.php');
 				<h4 class="vertical-menu__title">Configuración</h4>
 			</a>
 
-			<a class="vertical-menu__link" href="../rutas/index.php">
+			<a class="vertical-menu__link" href="../rutas/viewRutas.php">
 				<i class="vertical-menu__icon fas fa-route"></i>
 				<h4 class="vertical-menu__title">Rutas</h4>
 			</a>

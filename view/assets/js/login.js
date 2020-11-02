@@ -13,7 +13,7 @@ $('#ingresar').on('click', function(e){
 		contentType: false,
 		success: function(resp){
 			if (resp) {
-				location.href ="http://localhost:3000/view/rutas/index.php";
+				location.href ="http://localhost:3000/view/rutas/viewRutas.php";
             }else{
                 alertify.error("Usuario o contraseña incorrecta");
             }
