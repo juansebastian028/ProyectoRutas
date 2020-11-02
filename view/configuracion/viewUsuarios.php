@@ -122,7 +122,7 @@ require('../../controller/validarURL.php');
                             <option value="1">Admisnistrador</option>
                             <option value="2">Usuario General</option>
                         </select>
-
+                        
                     </form>
                 </div>
                 <div class="modal-footer">
