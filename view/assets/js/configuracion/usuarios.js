@@ -148,5 +148,6 @@ $("#frm").on("submit", function (e) {
 
 $('#modalRegistro').on('hide.bs.modal', function(){
     $("#frm").trigger("reset");
+    $('[name=usuarioId]').val("");
     $("#tituloModal").text("Registrar Usuario");
 });
