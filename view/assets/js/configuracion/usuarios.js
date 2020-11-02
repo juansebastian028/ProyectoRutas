@@ -21,8 +21,8 @@ $(document).ready(function(){
             }
         },
         columnDefs: [
-            { "width": "40%", "targets": [0, 1] },
-            { "width": "20%", "targets": 2 }
+        { "width": "40%", "targets": [0, 1] },
+        { "width": "20%", "targets": 2 }
         ],
         createdRow: function(row, data, index){
             $(row).find('.btn-danger').on('click', function(){
@@ -31,8 +31,41 @@ $(document).ready(function(){
                         alertify.success("Registro eliminado exitosamente");
                     },
                     function(){ }
-                );
+                    );
             });
         }
     });
 });
+
+
+$('#frm').on('submit', function(e){
+    e.preventDefault();
+    var form = $('#frm')[0];
+    var datos = new FormData(form);
+    datos.append('opcion', 'registrarse');
+
+    $.ajax({
+        data: datos,
+        url:'../../controller/usuarioController.php', 
+        type:'POST',
+        processData: false,
+        contentType: false,
+        success:function(data){
+            if (data) {
+                alertify.success("Registro guardado exitosamente");
+                $('#frm').trigger('reset');
+                $("#modalRegistro").modal('hide');
+            }else{
+                alertify.error("Ocurrio un error al guardar el registro");
+            }
+        },
+        error:function(error){
+            console.log(error);
+        }
+    });
+});
+
+
+
+
+

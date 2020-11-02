@@ -1,7 +1,7 @@
 <?php 
     class Usuario{
 
-        private $db;
+        public $db;
 
         public function __construct()
         {
@@ -31,8 +31,17 @@
             parent::__construct();
         }
 
-        public function registrarUsuario(){
+        public function registrarUsuario($nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
+            $perfilUsuario){
 
+            $Registrar_Usuario = "INSERT INTO usuario (Nombre, Apellido, Usuario, Contrasena, PerfilId) VALUES (?,?,?,?,?)";
+
+            $result = $this->db->prepare($Registrar_Usuario);
+
+            $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
+            intval($perfilUsuario));
+
+            return $result->execute();
         }
     }
 ?>

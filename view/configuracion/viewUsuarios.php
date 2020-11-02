@@ -98,38 +98,36 @@ require('../../controller/validarURL.php');
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
-
-                        <label for="">Cedula</label>
-                        <input class="form-control tamaño_input " type="number" placeholder="Ingrese su Cedula"> <br>
-
+                    <form action="" id="frm" >
                         <label for="">Nombre</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su nombre">
+                        <input class="form-control" type="text" placeholder="Ingrese su nombre"
+                         name="Nombre-Usuario" >
                         <br>
 
                         <label for="">Apellido</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Apellido">
+                        <input class="form-control" type="text" placeholder="Ingrese su Apellido"
+                         name="Apellido-Usuario">
                         <br>
 
                         <label for="">Usuario</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario">
+                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" name="Nombre_De_Usuario" autocomplete="off">
                         <br>
 
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Contraseña">
+                        <input class="form-control" type="password" placeholder="Ingrese su Contraseña" name="Contraseña-Usuario" autocomplete="off">
                         <br>
 
                         <label for="">Selecione su Perfil</label>
-                        <select class="custom-select" name="perfilUsuario" id="">
-                            <option value="">Admisnistrador</option>
-                            <option value="">Usuario General</option>
+                        <select class="custom-select" name="perfilUsuario">
+                            <option value="1">Admisnistrador</option>
+                            <option value="2">Usuario General</option>
                         </select>
 
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" onclick="" class="btn btn-primary">Registrar</button>
+                    <button type="submit" form="frm" id="evenbutton" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
@@ -145,6 +143,7 @@ require('../../controller/validarURL.php');
     <script src="../assets/alertify/alertify.js"></script>
 
     <script src="../assets/js/usuarios.js"></script>
+
 </body>
 
 </html>
