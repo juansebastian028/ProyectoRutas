@@ -103,11 +103,11 @@ require('../../controller/validarURL.php');
 							<input type="hidden" name="id">
 							<div class="form-group">
 								<label for="nRuta" class="col-form-label">N° Ruta</label>
-								<input type="text" class="form-control" name="nRuta" maxlength="30" required>
+								<input type="text" class="form-control" id="nRuta" maxlength="30" required>
 							</div>
 							<div class="form-group">
 								<label for="nPlaca" class="col-form-label">N° Placa</label>
-								<input type="text" class="form-control" name="nPlaca" maxlength="30" required>
+								<input type="text" class="form-control" id="nPlaca" maxlength="30" required>
 							</div>
 							<div class="row">
 								<div class="col-6">
@@ -131,7 +131,7 @@ require('../../controller/validarURL.php');
 								</div>
 								<div class="col-12">
 									<!-- <table class="table table-bodered"> -->
-									<table class="table table-bordered table-sm table-hover table-fixed table-striped">
+									<table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblTrayectos">
 										<thead>
 											<tr>
 												<th>Trayecto</th>
@@ -143,6 +143,20 @@ require('../../controller/validarURL.php');
 											<tr>
 												<td>La casa</td>
 												<td>Ida</td>
+												<td>
+													<button class="btn btn-sm btn-danger">X</button>
+												</td>
+											</tr>
+											<tr>
+												<td>La casa 2</td>
+												<td>Ida</td>
+												<td>
+													<button class="btn btn-sm btn-danger">X</button>
+												</td>
+											</tr>
+											<tr>
+												<td>La casa 3</td>
+												<td>Vuelta</td>
 												<td>
 													<button class="btn btn-sm btn-danger">X</button>
 												</td>
@@ -171,7 +185,7 @@ require('../../controller/validarURL.php');
 
 	<script src="../assets/alertify/alertify.js"></script>
 
-	<script src="../assets/js/rutas.js"></script>
+	<script src="../assets/js/configuracion/rutas.js"></script>
 
 </body>
 

@@ -69,5 +69,21 @@
 
             return $result->execute();
         }
+
+        public function registrarRuta($nRuta,$nPlaca){
+
+            $Registrar_Ruta = "INSERT INTO ruta (Numero,Placa) VALUES (?,?)";
+
+            $result = $this->db->prepare($Registrar_Ruta);
+
+            $result->bind_param("is",$nRuta,$nPlaca);
+
+            return $result->execute();
+
+
+
+        }
+
+
     }
 ?>

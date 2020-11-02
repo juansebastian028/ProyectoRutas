@@ -6,14 +6,14 @@ $('#ingresar').on('click', function(e){
 	formData.append('opcion', 'login');
 
 	$.ajax({
-		url: '../../controller/usuarioController.php',
+		url: $URL+'/ProyectoRutas/controller/usuarioController.php',
 		type: 'post',
 		data: formData,
 		processData: false,
 		contentType: false,
 		success: function(resp){
 			if (resp) {
-				location.href ="http://localhost:3000/view/rutas/viewRutas.php";
+				location.href = $URL+"/ProyectoRutas/view/rutas/viewRutas.php";
             }else{
                 alertify.error("Usuario o contraseña incorrecta");
             }

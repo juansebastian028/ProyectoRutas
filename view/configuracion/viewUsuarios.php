@@ -129,6 +129,8 @@ require('../../controller/validarURL.php');
                 </div>
             </div>
         </div>
+
+       
     </div>
 
     <!-- Script Bootstrap -->
@@ -141,6 +143,7 @@ require('../../controller/validarURL.php');
     <script src="../assets/alertify/alertify.js"></script>
 
     <script src="../assets/js/configuracion/usuarios.js"></script>
+
 
 </body>
 

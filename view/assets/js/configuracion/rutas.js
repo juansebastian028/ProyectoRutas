@@ -36,3 +36,44 @@ $(document).ready(function(){
         }
     });
 });
+
+$('#frm').on('submit', function(e){
+    e.preventDefault();
+    var nRuta = document.getElementById("nRuta").value;
+    var nPlaca = document.getElementById("nPlaca").value;
+
+    var parametros = {
+        nRuta: nRuta, 
+        nPlaca: nPlaca,
+        opcion: 'registrar'
+    }
+
+    var trayectos = [];
+    $('#tblTrayectos tbody').find('tr').each(function(){ 
+        trayectos.push({ 
+            trayecto: $(this).find('td:eq(0)').text(), 
+            tipo: $(this).find('td:eq(1)').text() 
+        }) 
+    });
+
+    parametros.trayectos = trayectos;
+
+    $.ajax({
+        url:'../../controller/RutasController.php', 
+        type:'POST',
+        data: parametros,
+        success:function(data){
+            if (data == 1) {
+                alertify.success("Registro guardado exitosamente");
+            }else{
+                alertify.error("Ocurrio un error al guardar el registro");
+                console.log(data);
+            }
+        },
+        error:function(error){
+            console.log(error);
+        }
+    });
+
+
+});
