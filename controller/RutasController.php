@@ -11,5 +11,5 @@ if ($opcion === "registrar") {
 
     $ruta = new Ruta();
 
-    echo $ruta->registrarRuta($nRuta,$nPlaca, $trayectos);
+    echo $ruta->registrarRuta($nRuta, $nPlaca, $trayectos);
 }

@@ -1,7 +1,3 @@
-<?php
-require('../../controller/validarURL.php');
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,55 +7,68 @@ require('../../controller/validarURL.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> </title>
     <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../frameworks/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1wl3SnXAn5GdplIRneLT4fQ-Nl4-cA6c&callback=initMap" async defer></script>
-    <style> 
-        .div-map{
+    <style>
+        .div-map {
             height: 500px !important;
         }
+
         #map {
             height: 100%;
         }
-        
-        html, body {
+
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
-	</style> 
+    </style>
 </head>
 
 <body>
+    <?php
+    require('../../controller/validarURL.php');
+    session_start();
+    ?>
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="btn btn-outline-light" href="viewRutas.php">Volver</a>
         <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#">Iniciar Sesión</a>
+            <a class="nav-item nav-link" href="<?= isset($_SESSION["username"]) ?  '../../controller/cerrarSesion.php' : '../login/viewLogin.php' ?>">
+                <?= isset($_SESSION["username"]) ? 'Cerrar Sesión' : 'Iniciar Sesión' ?>
+            </a>
         </div>
     </nav>
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link" href="../configuracion/viewConfiguracion.php">
-                <i class="vertical-menu__icon fas fa-cog"></i>
-                <h4 class="vertical-menu__title">Configuración</h4>
-            </a>
-
-            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "rutas") ? 'is-active' : '' ?>" href="viewRutas.php">
-                <i class="vertical-menu__icon fas fa-route"></i>
-                <h4 class="vertical-menu__title">Rutas</h4>
-            </a>
+            <?php if (isset($_SESSION["username"])) : ?>
+                <a class="vertical-menu__link" href="../configuracion/viewConfiguracion.php">
+                    <i class="vertical-menu__icon fas fa-cog"></i>
+                    <h4 class="vertical-menu__title">Configuración</h4>
+                </a>
+                <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "rutas") ? 'is-active' : '' ?>" href="viewRutas.php">
+                    <i class="vertical-menu__icon fas fa-route"></i>
+                    <h4 class="vertical-menu__title">Rutas</h4>
+                </a>
+            <?php else : ?>
+                <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "rutas") ? 'is-active' : '' ?>" href="viewRutas.php">
+                    <i class="vertical-menu__icon fas fa-route"></i>
+                    <h4 class="vertical-menu__title">Rutas</h4>
+                </a>
+            <?php endif ?>
         </div>
 
         <div class="container-fluid d-flex flex-column align-content-center justify-content-center">
             <div class="row">
-<<<<<<< HEAD
                 <div class="col-12 col-md-8 col-lg-8 div-map">
                     <div id="floating-panel">
                         <b>Mode of Travel: </b>
@@ -71,12 +80,7 @@ require('../../controller/validarURL.php');
                         </select>
                     </div>
 
-                    <div id ="map"> </div> 
-=======
-                <div class="col-12 col-md-8 col-lg-8">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d254447.96469720756!2d-75.64354695180359!3d4.81302822320159!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1602966481775!5m2!1ses!2sco" class="w-100" height="460" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    <p>Número ruta: 17</p>
->>>>>>> 32633e7f4d0aefbd8e36eb4f723aa720c6febbbb
+                    <div id="map"> </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="row">
@@ -114,10 +118,10 @@ require('../../controller/validarURL.php');
         </div>
 
         <!-- Script Bootstrap -->
-        <script src="../assets/bootstrap/js/jquery-3.5.1.min.js"></script>
-        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
+        <script src="../frameworks/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="../assets/js/viewRuta.js"></script>
+        <script src="../js/rutas/viewRuta.js"></script>
 
 </body>
 

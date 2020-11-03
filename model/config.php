@@ -4,4 +4,3 @@
     define('DB_PASS','');
     define('DB_NAME','softwarebuses');
     define('DB_CHARSET','utf8');
-?>

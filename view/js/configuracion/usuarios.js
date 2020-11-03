@@ -122,7 +122,7 @@ $("#frm").on("submit", function (e) {
     });
   } else {
     datos.append("opcion", "actualizar");
-    datos.append("usuarioId",$("[name=usuarioId]").val());
+    datos.append("usuarioId", $("[name=usuarioId]").val());
     $.ajax({
       data: datos,
       url: "../../controller/usuarioController.php",
@@ -146,8 +146,8 @@ $("#frm").on("submit", function (e) {
   }
 });
 
-$('#modalRegistro').on('hide.bs.modal', function(){
-    $("#frm").trigger("reset");
-    $('[name=usuarioId]').val("");
-    $("#tituloModal").text("Registrar Usuario");
+$("#modalRegistro").on("hide.bs.modal", function () {
+  $("#frm").trigger("reset");
+  $("[name=usuarioId]").val("");
+  $("#tituloModal").text("Registrar Usuario");
 });
