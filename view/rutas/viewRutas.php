@@ -48,28 +48,15 @@
             <?php endif ?>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid" id="container-rutas">
             <div class="container my-2">
                 <form class="d-flex">
                     <input class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
                     <button class="btn btn-primary" type="submit">Buscar</button>
                 </form>
             </div>
-            <div class="row d-flex flex-row justify-content-center">
-                <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-                    <a href="viewRuta.php" class="btn d-block w-100 p-0">
-                        <div class="card">
-                            <div class="container-fluid bg-gray text-center py-4">
-                                <i class="fas fa-bus display-1"></i>
-                            </div>
-                            <div class="container-fluid bg-gray-dark text-center py-2">
-                                <h5 class="card-title mb-0">Ruta 17</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <div id="cards-container" class="row d-flex flex-row justify-content-center">
             </div>
-
             <div class="d-flex justify-content-center mt-2">
                 <ul class="pagination">
                     <li class="page-item disabled">
@@ -94,7 +81,7 @@
         <!-- Script Bootstrap -->
         <script src="../frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
         <script src="../frameworks/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../js/rutas/verRutas.js"></script>
+        <script src="../js/rutas/viewRutas.js"></script>
 
 </body>
 

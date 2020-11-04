@@ -17,7 +17,9 @@ if ($opcion === "login") {
         session_start();
         $_SESSION["username"] = $username;
     }
+    
     echo $esValido;
+
 } elseif ($opcion === "registrarse") {
 
     $nombre = $_POST['nombre'];

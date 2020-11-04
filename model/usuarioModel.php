@@ -89,6 +89,8 @@
                 $arr= $exec_query->fetch_all(MYSQLI_ASSOC);
 
                 return $arr;
+            }else{
+                return [];
             }
         }
 

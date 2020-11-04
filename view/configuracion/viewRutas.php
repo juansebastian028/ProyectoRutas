@@ -1,7 +1,3 @@
-<?php
-require('../../controller/validarURL.php');
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,6 +21,13 @@ require('../../controller/validarURL.php');
 </head>
 
 <body>
+	<?php
+	require('../../controller/validarURL.php');
+	session_start();
+	if (!isset($_SESSION["username"])) {
+		header("location:../login/viewLogin.php");
+	}
+	?>
 	<!-- Nav -->
 	<nav class="navbar navbar-dark bg-dark">
 		<a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
@@ -103,24 +106,23 @@ require('../../controller/validarURL.php');
 							<input type="hidden" name="id">
 							<div class="form-group">
 								<label for="nRuta" class="col-form-label">N° Ruta</label>
-								<input type="text" class="form-control" id="nRuta" maxlength="30" required>
+								<input type="text" class="form-control" placeholder="Ingrese el número de ruta" id="nRuta" maxlength="30" required>
 							</div>
 							<div class="form-group">
 								<label for="nPlaca" class="col-form-label">N° Placa</label>
-								<input type="text" class="form-control" id="nPlaca" maxlength="30" required>
+								<input type="text" class="form-control" placeholder="Ingrese el número de placa" id="nPlaca" maxlength="30" required>
 							</div>
 							<div class="row">
 								<div class="col-6">
 									<div class="form-group">
 										<label for="trayecto" class="col-form-label">Trayecto</label>
-										<input type="text" class="form-control" name="trayecto" maxlength="30" required>
+										<input type="text" class="form-control" placeholder="Ingrese el lugar de trayecto" name="trayecto" maxlength="30" required>
 									</div>
 								</div>
 								<div class="col-6">
 									<div class="form-group">
 										<label for="tipo" class="col-form-label">Tipo</label>
 										<select class="form-control" name="tipo" id="tipo">
-											<option value="" selected disabled></option>
 											<option value="">Ida</option>
 											<option value="">Vuelta</option>
 										</select>

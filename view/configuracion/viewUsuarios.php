@@ -1,7 +1,3 @@
-<?php
-require('../../controller/validarURL.php');
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,6 +21,13 @@ require('../../controller/validarURL.php');
 </head>
 
 <body>
+    <?php
+    require('../../controller/validarURL.php');
+    session_start();
+    if (!isset($_SESSION["username"])) {
+        header("location:../login/viewLogin.php");
+    }
+    ?>
     <!-- Nav -->
     <nav class="navbar navbar-dark bg-dark">
         <a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
@@ -95,15 +98,15 @@ require('../../controller/validarURL.php');
                         <br>
 
                         <label for="">Apellido</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Apellido" name="apellido">
+                        <input class="form-control" type="text" placeholder="Ingrese su apellido" name="apellido">
                         <br>
 
                         <label for="">Usuario</label>
-                        <input class="form-control" type="text" placeholder="Ingrese su Nombre de usuario" name="usuario" autocomplete="off">
+                        <input class="form-control" type="text" placeholder="Ingrese su nombre de usuario" name="usuario" autocomplete="off">
                         <br>
 
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="password" placeholder="Ingrese su Contraseña" name="contrasena" autocomplete="off">
+                        <input class="form-control" type="password" placeholder="Ingrese su contraseña" name="contrasena" autocomplete="off">
                         <br>
 
                         <label for="">Selecione su Perfil</label>
