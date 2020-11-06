@@ -6,7 +6,7 @@ class Ruta
 
     public function __construct()
     {
-        require_once('ConexionDB.php');
+        require_once('../db/Conexion.php');
 
         $this->db = Conexion::realizarConexion();
     }
@@ -43,10 +43,42 @@ class Ruta
             return 0;
         }
     }
-
+    
     public function getRutas()
     {
-        $sql = 'SELECT RutaId, Numero FROM ruta';
+        $sql = 'SELECT R.RutaId, R.Numero, R.Placa FROM ruta R';
+
+        if ($exec_query = $this->db->query($sql)) {
+
+            $arr = $exec_query->fetch_all(MYSQLI_ASSOC);
+
+            for($i = 0; $i < count($arr); $i++){
+                $rutaId = $arr[$i]['RutaId'];
+                $sql = "SELECT T.Trayecto, T.Tipo FROM Trayecto T WHERE T.RutaId = '$rutaId'";
+                $exec_query = $this->db->query($sql);
+                $arrTrayectos = $exec_query->fetch_all(MYSQLI_ASSOC);
+                $ida = "";
+                $vuelta = "";
+                for($j = 0; $j < count($arrTrayectos); $j++){
+                    if($arrTrayectos[$j]['Tipo'] == 'Ida'){
+                        $ida .= $arrTrayectos[$j]['Trayecto'] . ', ';
+                    }else{
+                        $vuelta .= $arrTrayectos[$j]['Trayecto'] . ', ';
+                    }
+                }
+                $arr[$i]['Ida'] = $ida;
+                $arr[$i]['Vuelta'] = $vuelta;
+            }
+
+            return $arr;
+        } else {
+            return [];
+        }
+    }
+
+    public function getRutasByLimit($startRowNumber, $limitRowNumber){
+                
+        $sql = "SELECT RutaId, Numero FROM ruta LIMIT $startRowNumber,$limitRowNumber";
 
         if ($exec_query = $this->db->query($sql)) {
 
@@ -57,4 +89,40 @@ class Ruta
             return [];
         }
     }
+
+    public function getNumeroDeRegistros(){
+
+        $result = $this->db->query('SELECT * FROM ruta');
+        $filasAfectadas = $result->num_rows;
+
+        return $filasAfectadas;
+    }
+
+    public function getTrayectos($rutaId)
+    {
+        $sql = "SELECT T.Trayecto, T.Tipo FROM Trayecto T WHERE T.RutaId = '$rutaId'";
+
+        if ($exec_query = $this->db->query($sql)) {
+
+            $arr = $exec_query->fetch_all(MYSQLI_ASSOC);
+
+            return $arr;
+        } else {
+            return [];
+        }
+    }
+
+    public function eliminarRuta($id)
+    {
+        $sql = "DELETE FROM Trayecto WHERE RutaId = '$id'";
+        $sql2 = "DELETE FROM Ruta WHERE RutaId = '$id'";
+
+        if ($this->db->query($sql) && $this->db->query($sql2)) {
+            return true;
+            } else {
+            return false;
+            }
+    }
 }
+
+

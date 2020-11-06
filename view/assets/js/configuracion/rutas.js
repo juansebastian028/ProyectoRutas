@@ -65,7 +65,7 @@ $("#frm").on("submit", function (e) {
   parametros.trayectos = trayectos;
 
   $.ajax({
-    url: "../../controller/RutasController.php",
+    url: "../../../../controller/RutasController.php",
     type: "POST",
     data: parametros,
     success: function (data) {

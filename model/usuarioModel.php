@@ -5,7 +5,7 @@
 
         public function __construct()
         {
-            require_once('ConexionDB.php');
+            require_once('../db/Conexion.php');
 
             $this->db = Conexion::realizarConexion();
 

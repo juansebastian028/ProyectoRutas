@@ -1,16 +1,19 @@
 const $containerCards = document.getElementById("cards-container"),
-$fragment = document.createDocumentFragment();
+  $pagination = document.getElementById("rutas-pagination"),
+  $fragment = document.createDocumentFragment(),
+  $fragmentPagination = document.createDocumentFragment();
 $(document).ready(function () {
   $.ajax({
-    url: "../../controller/RutasController.php",
+    url: "../../../../controller/RutasController.php",
     type: "POST",
     data: {
       opcion: "obtener",
     },
     success: function (data) {
-      const arrRutas = JSON.parse(data);
+      const arr = JSON.parse(data);
+      console.log(arr);
       let template = "";
-      arrRutas.forEach((element) => {
+      arr.rutas.forEach((element) => {
         template = `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
             <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
                 <div class="card">
@@ -28,6 +31,23 @@ $(document).ready(function () {
       });
 
       $containerCards.appendChild($fragment);
+
+      let pagTemplate = "";
+      let templatePrevious = "";
+      let templateNext = "";
+
+      if (arr.totalPaginas) {
+        for (let i = 1; i <= arr.totalPaginas; i++) {
+          pagTemplate = `<li class="page-item">
+                <a class="page-link" href="?page=${i}">${i}</a>
+          </li>`;
+
+          $nodesPagination = document.createRange().createContextualFragment(pagTemplate);
+          $fragmentPagination.appendChild($nodesPagination);
+        }
+      }
+
+      $pagination.appendChild($fragmentPagination);
     },
     error: function (error) {
       console.log(error);

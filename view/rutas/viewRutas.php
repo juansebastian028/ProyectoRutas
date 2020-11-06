@@ -7,22 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> </title>
     <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="../frameworks/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/frameworks/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 
 <body>
     <?php
-    require('../../controller/validarURL.php');
+    require('../../helpers/validarURL.php');
     session_start();
     ?>
     <!-- Nav -->
     <nav class="navbar navbar-dark bg-dark">
         <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="<?= isset($_SESSION["username"]) ?  '../../controller/cerrarSesion.php' : '../login/viewLogin.php' ?>">
+            <a class="nav-item nav-link" href="<?= isset($_SESSION["username"]) ?  '../../helpers/cerrarSesion.php' : '../login/viewLogin.php' ?>">
                 <?= isset($_SESSION["username"]) ? 'Cerrar Sesión' : 'Iniciar Sesión' ?>
             </a>
         </div>
@@ -58,30 +58,16 @@
             <div id="cards-container" class="row d-flex flex-row justify-content-center">
             </div>
             <div class="d-flex justify-content-center mt-2">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
+                <ul class="pagination" id="rutas-pagination">
+
                 </ul>
             </div>
         </div>
 
         <!-- Script Bootstrap -->
-        <script src="../frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
-        <script src="../frameworks/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../js/rutas/viewRutas.js"></script>
+        <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
+        <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/js/rutas/viewRutas.js"></script>
 
 </body>
 
