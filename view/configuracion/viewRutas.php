@@ -64,28 +64,15 @@
 					<table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblRutas">
 						<thead class="bg-primary text-white">
 							<tr>
+								<th>Id</th>
 								<th>N° Ruta</th>
+								<th>Placa</th>
 								<th>Trayecto ida</th>
 								<th>Trayecto vuelta</th>
 								<th>Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php
-							for ($i = 0; $i < 50; $i++) {
-							?>
-								<tr>
-									<td><?= $i ?></td>
-									<td>Trayecto ida <?= $i ?></td>
-									<td>Trayecto vuelta <?= $i ?></td>
-									<td>
-										<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
-										<button class="btn btn-sm btn-danger">Eliminar</button>
-									</td>
-								</tr>
-							<?php
-							}
-							?>
 						</tbody>
 					</table>
 				</div>
@@ -96,7 +83,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Ruta</h5>
+						<h5 class="modal-title" id="tituloModal">Ruta</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -106,30 +93,30 @@
 							<input type="hidden" name="id">
 							<div class="form-group">
 								<label for="nRuta" class="col-form-label">N° Ruta</label>
-								<input type="text" class="form-control" placeholder="Ingrese el número de ruta" id="nRuta" maxlength="30" required>
+								<input type="text" class="form-control" placeholder="Ingrese el número de ruta" name="ruta" maxlength="30" required>
 							</div>
 							<div class="form-group">
 								<label for="nPlaca" class="col-form-label">N° Placa</label>
-								<input type="text" class="form-control" placeholder="Ingrese el número de placa" id="nPlaca" maxlength="30" required>
+								<input type="text" class="form-control" placeholder="Ingrese el número de placa" name="placa" maxlength="30" required>
 							</div>
 							<div class="row">
 								<div class="col-6">
 									<div class="form-group">
 										<label for="trayecto" class="col-form-label">Trayecto</label>
-										<input type="text" class="form-control" placeholder="Ingrese el lugar de trayecto" name="trayecto" maxlength="30" required>
+										<input type="text" class="form-control" placeholder="Ingrese el lugar de trayecto" name="trayecto" maxlength="30">
 									</div>
 								</div>
 								<div class="col-6">
 									<div class="form-group">
 										<label for="tipo" class="col-form-label">Tipo</label>
-										<select class="form-control" name="tipo" id="tipo">
-											<option value="">Ida</option>
-											<option value="">Vuelta</option>
+										<select class="form-control" name="tipo">
+											<option value="Ida">Ida</option>
+											<option value="Vuelta">Vuelta</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-5 mb-2">
-									<button class="btn btn-success">Agregar</button>
+									<button class="btn btn-success" id="btnAgregarTrayecto">Agregar</button>
 								</div>
 								<div class="col-12">
 									<!-- <table class="table table-bodered"> -->
@@ -142,27 +129,6 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>La casa</td>
-												<td>Ida</td>
-												<td>
-													<button class="btn btn-sm btn-danger">X</button>
-												</td>
-											</tr>
-											<tr>
-												<td>La casa 2</td>
-												<td>Ida</td>
-												<td>
-													<button class="btn btn-sm btn-danger">X</button>
-												</td>
-											</tr>
-											<tr>
-												<td>La casa 3</td>
-												<td>Vuelta</td>
-												<td>
-													<button class="btn btn-sm btn-danger">X</button>
-												</td>
-											</tr>
 										</tbody>
 									</table>
 								</div>

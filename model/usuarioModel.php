@@ -63,8 +63,7 @@
 
             $result = $this->db->prepare($sql);
 
-            $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
-            intval($perfilId));
+            $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,$perfilId);
 
             return $result->execute();
         }
