@@ -140,6 +140,11 @@ $("#frm").on("submit", function (e) {
   var nRuta = $('[name=ruta]').val();
   var nPlaca = $('[name=placa]').val();
 
+  if($('#tblTrayectos tbody').find('tr').length == 0){
+    alertify.warning("Ingrese el trayecto de la ruta");
+    return;
+  }
+
   var parametros = {
     nRuta: nRuta,
     nPlaca: nPlaca,
@@ -158,8 +163,9 @@ $("#frm").on("submit", function (e) {
 
   parametros.trayectos = trayectos;
 
-  if($('[name=id').val() == ''){
+  if($('[name=id').val() != ''){
     parametros.opcion = 'actualizar';
+    parametros.id = $('[name=id]').val();
   }
 
   $.ajax({

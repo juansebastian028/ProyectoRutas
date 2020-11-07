@@ -47,13 +47,19 @@ class Ruta
     public function actualizarRuta($id, $nRuta, $nPlaca, $trayectos)
     {
 
+        $delete = "DELETE FROM Trayecto WHERE RutaId = ?";
+        $resp = $this->db->prepare($delete);
+
+        $resp->bind_param("i", $id);
+        $resp->execute();
+
         $Registrar_Ruta = "UPDATE ruta SET Numero = ?, Placa = ? WHERE RutaId = ?";
 
         $result = $this->db->prepare($Registrar_Ruta);
 
         $result->bind_param("isi", $nRuta, $nPlaca, $id);
 
-        if ($result->execute()) {
+        $result->execute();
             $rutaId = $id;
 
             for ($i = 0; $i < count($trayectos); $i++) {
@@ -66,9 +72,6 @@ class Ruta
             }
 
             return 1;
-        } else {
-            return 0;
-        }
     }
 
     public function eliminarRuta($id)
@@ -109,8 +112,8 @@ class Ruta
                         $vuelta .= $arrTrayectos[$j]['Trayecto'] . ', ';
                     }
                 }
-                $arr[$i]['Ida'] = $ida;
-                $arr[$i]['Vuelta'] = $vuelta;
+                $arr[$i]['Ida'] = ($ida != "") ? substr($ida, 0, -2) : "";
+                $arr[$i]['Vuelta'] = ($vuelta != "") ? substr($vuelta, 0, -2) : "";
             }
 
             return $arr;

@@ -5,12 +5,13 @@ const $containerCards = document.getElementById("cards-container"),
   $fragmentPagination = document.createDocumentFragment();
 $(document).ready(function () {
   $.ajax({
-    url: "../../../../controller/RutasController.php",
+    url: "../../controller/RutasController.php",
     type: "POST",
     data: {
       opcion: "obtener",
     },
     success: function (data) {
+      console.log(data);
       const arr = JSON.parse(data);
       arrRutas = arr.rutas;
       let template = "";
