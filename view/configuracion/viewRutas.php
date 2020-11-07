@@ -18,6 +18,18 @@
 	<!-- Alertify -->
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/alertify.min.css" />
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/themes/default.min.css" />
+
+	<style>
+       .table-content { 
+		   display: block; 
+		   width: 100%; 
+		   overflow-y: scroll;
+		   height: 300px; 
+		}
+        #tblTrayectos {
+			width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -118,8 +130,7 @@
 								<div class="col-5 mb-2">
 									<button class="btn btn-success" id="btnAgregarTrayecto">Agregar</button>
 								</div>
-								<div class="col-12">
-									<!-- <table class="table table-bodered"> -->
+								<div class="col-12 pr-0 table-content">
 									<table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblTrayectos">
 										<thead>
 											<tr>
