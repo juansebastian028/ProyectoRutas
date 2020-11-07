@@ -50,3 +50,9 @@ html,body {
 .bg-gray{
     background-color: #E0E0E0;
 }
+
+.filter {
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+  }

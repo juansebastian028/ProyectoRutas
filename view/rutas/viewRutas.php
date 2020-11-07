@@ -49,10 +49,9 @@
         </div>
 
         <div class="container-fluid" id="container-rutas">
-            <div class="container my-2">
+            <div id="formSearch" class="container my-2">
                 <form class="d-flex">
-                    <input class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
-                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    <input name="inputSearch" class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
                 </form>
             </div>
             <div id="cards-container" class="row d-flex flex-row justify-content-center">
