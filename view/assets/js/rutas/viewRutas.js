@@ -1,7 +1,6 @@
 let arrRutas,
   totalPaginas,
   arrRutasPorPagina,
-  arrTemp = [],
   cardTemplate = "";
 
 const $containerCards = document.getElementById("cards-container"),
@@ -96,11 +95,7 @@ $(document).ready(function () {
 });
 
 $("#rutas-pagination").on("click", ".page-link", function () {
-  if ($("[name=inputSearch]").val() === "") {
-    $("#cards-container").html(arrRutasPorPagina[$(this).data("page")]);
-  } else {
-    $("#cards-container").html(arrTemp[$(this).data("page")]);
-  }
+  $("#cards-container").html(arrRutasPorPagina[$(this).data("page")]);
   $(".page-item").removeClass("disabled");
   $(this).closest('li').addClass("disabled");
 });
@@ -118,7 +113,6 @@ $("[name=inputSearch]").keyup(function (e) {
     }
   });
   drawCards(arrBusqueda);
-  arrTemp = arrBusqueda;
   let totalPaginasConBusqueda = Math.ceil(arrBusqueda.length / 6);
   drawPagination(totalPaginasConBusqueda);
 });
