@@ -44,6 +44,33 @@ class Ruta
         }
     }
 
+    public function actualizarRuta($id, $nRuta, $nPlaca, $trayectos)
+    {
+
+        $Registrar_Ruta = "UPDATE ruta SET Numero = ?, Placa = ? WHERE RutaId = ?";
+
+        $result = $this->db->prepare($Registrar_Ruta);
+
+        $result->bind_param("isi", $nRuta, $nPlaca, $id);
+
+        if ($result->execute()) {
+            $rutaId = $id;
+
+            for ($i = 0; $i < count($trayectos); $i++) {
+                $sql = "INSERT INTO Trayecto (Trayecto,Tipo, RutaId) VALUES (?,?,?)";
+
+                $result = $this->db->prepare($sql);
+
+                $result->bind_param("ssi", $trayectos[$i]['trayecto'], $trayectos[$i]['tipo'], $rutaId);
+                $result->execute();
+            }
+
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public function eliminarRuta($id)
     {
         $sql = "DELETE FROM Trayecto WHERE RutaId = '$id'";

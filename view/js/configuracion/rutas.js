@@ -158,6 +158,10 @@ $("#frm").on("submit", function (e) {
 
   parametros.trayectos = trayectos;
 
+  if($('[name=id').val() == ''){
+    parametros.opcion = 'actualizar';
+  }
+
   $.ajax({
     url: "../../controller/RutasController.php",
     type: "POST",

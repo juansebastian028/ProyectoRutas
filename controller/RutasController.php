@@ -10,7 +10,12 @@ if ($opcion === "registrar") {
     $nPlaca = $_POST['nPlaca'];
     $trayectos = $_POST['trayectos'];
     echo $ruta->registrarRuta($nRuta, $nPlaca, $trayectos);
-
+} elseif ($opcion === "actualizar") {
+    $id = $_POST['id'];
+    $nRuta = $_POST['nRuta'];
+    $nPlaca = $_POST['nPlaca'];
+    $trayectos = $_POST['trayectos'];
+    echo $ruta->actualizarRuta($id, $nRuta, $nPlaca, $trayectos);
 } elseif ($opcion === "eliminar") {
     $id = json_decode($_POST['id']);
     echo $ruta->eliminarRuta($id);
