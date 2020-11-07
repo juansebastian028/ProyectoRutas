@@ -1,37 +1,20 @@
 let arrRutas,
-  arrData,
+  totalPaginas,
+  arrRutasPorPagina,
+  arrTemp = [],
   cardTemplate = "";
-const $containerCards = document.getElementById("cards-container");
 
-const drawSearch = (arrBusqueda) => {
+const $containerCards = document.getElementById("cards-container"),
+  $pagination = document.getElementById("rutas-pagination");
+
+const drawCards = (arrData) => {
+  arrRutasPorPagina = [];
   $containerCards.innerHTML = "";
-  const $fragment = document.createDocumentFragment();
-  let $nodes = "";
-  arrBusqueda.forEach((element) => {
-    cardTemplate = `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-    <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
-        <div class="card">
-            <div class="container-fluid bg-gray text-center py-4">
-                <i class="fas fa-bus display-1"></i>
-            </div>
-            <div class="container-fluid bg-gray-dark text-center py-2">
-                <h5 class="card-title mb-0">${element.Numero}</h5>
-            </div>
-        </div>
-    </a>
-  </div>`;
-    $nodes = document.createRange().createContextualFragment(cardTemplate);
-    $fragment.appendChild($nodes);
-  });
+  cardTemplate = "";
 
-  $containerCards.appendChild($fragment);
-};
-
-const drawCards = (arrRutas) => {
-  arrData = [];
   let cont = 6;
-  arrRutas.forEach((element, index) => {
-    if ((index + (1 % cont)) % 6 == 0) {
+  arrData.forEach((element, index) => {
+    if (((index + 1) % cont) % 6 === 0) {
       cardTemplate += `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
           <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
               <div class="card">
@@ -44,7 +27,7 @@ const drawCards = (arrRutas) => {
               </div>
           </a>
       </div>`;
-      arrData.push(cardTemplate);
+      arrRutasPorPagina.push(cardTemplate);
       cardTemplate = "";
       cont += 6;
     } else {
@@ -62,14 +45,16 @@ const drawCards = (arrRutas) => {
       </div>`;
     }
   });
-  arrData.push(cardTemplate);
-  let $nodes = document.createRange().createContextualFragment(arrData[0]);
+  arrRutasPorPagina.push(cardTemplate);
+  let $nodes = document
+    .createRange()
+    .createContextualFragment(arrRutasPorPagina[0]);
   $containerCards.appendChild($nodes);
 };
 
 const drawPagination = (totalPaginas) => {
-  const $pagination = document.getElementById("rutas-pagination"),
-    $fragment = document.createDocumentFragment();
+  const $fragment = document.createDocumentFragment();
+  $pagination.innerHTML = "";
   let pagTemplate = "";
   let $nodesPagination = "";
 
@@ -86,6 +71,7 @@ const drawPagination = (totalPaginas) => {
     }
   }
   $pagination.appendChild($fragment);
+  $($(".page-link")[0]).closest('li').addClass("disabled");
 };
 
 $(document).ready(function () {
@@ -97,9 +83,11 @@ $(document).ready(function () {
     },
     success: function (data) {
       const arr = JSON.parse(data);
+      console.log(arr);
       arrRutas = arr.rutas;
+      totalPaginas = arr.totalPaginas;
       drawCards(arrRutas);
-      drawPagination(arr.totalPaginas);
+      drawPagination(totalPaginas);
     },
     error: function (error) {
       console.log(error);
@@ -108,25 +96,29 @@ $(document).ready(function () {
 });
 
 $("#rutas-pagination").on("click", ".page-link", function () {
-  $("#cards-container").html(arrData[$(this).data("page")]);
-  $(".page-link").removeAttr("disabled");
-  $(this).attr("disabled", true);
+  if ($("[name=inputSearch]").val() === "") {
+    $("#cards-container").html(arrRutasPorPagina[$(this).data("page")]);
+  } else {
+    $("#cards-container").html(arrTemp[$(this).data("page")]);
+  }
+  $(".page-item").removeClass("disabled");
+  $(this).closest('li').addClass("disabled");
 });
 
 $("[name=inputSearch]").keyup(function (e) {
-  //console.log(e.key);
-  //console.log(e.target.value);
-
+  e.preventDefault();
   if (e.key === "Escape") {
     e.target.value = "";
   }
   let arrBusqueda = [];
 
   arrRutas.forEach((element) => {
-    if (element.Numero.includes(e.target.value)) {
+    if (element.Numero.includes(e.target.value) || element.Ida.includes(e.target.value) || element.Vuelta.includes(e.target.value) ) {
       arrBusqueda.push({ RutaId: element.RutaId, Numero: element.Numero });
     }
   });
-
-  drawSearch(arrBusqueda);
+  drawCards(arrBusqueda);
+  arrTemp = arrBusqueda;
+  let totalPaginasConBusqueda = Math.ceil(arrBusqueda.length / 6);
+  drawPagination(totalPaginasConBusqueda);
 });

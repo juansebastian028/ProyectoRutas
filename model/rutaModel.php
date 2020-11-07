@@ -122,21 +122,6 @@ class Ruta
         }
     }
 
-    public function getListRutas()
-    {
-
-        $sql = "SELECT RutaId, Numero FROM ruta";
-
-        if ($exec_query = $this->db->query($sql)) {
-
-            $arr = $exec_query->fetch_all(MYSQLI_ASSOC);
-
-            return $arr;
-        } else {
-            return [];
-        }
-    }
-
     public function getNumeroDeRegistros()
     {
 

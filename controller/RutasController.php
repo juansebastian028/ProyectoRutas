@@ -25,7 +25,7 @@ if ($opcion === "registrar") {
     $numFilaInicial = $paginacion->getstartRowNumber();
     $numFilaLimite = $paginacion->getLimitRowNumber();
     $totalPaginas = $paginacion->getTotalPages();
-    echo json_encode(['totalPaginas' => $totalPaginas, 'rutas' => $ruta->getListRutas()]);
+    echo json_encode(['totalPaginas' => $totalPaginas, 'rutas' => $ruta->getRutas()]);
 } elseif ($opcion === "eliminar") {
     $id = json_decode($_POST['id']);
     echo $ruta->eliminarRuta($id);
