@@ -63,20 +63,30 @@
 
             $result = $this->db->prepare($sql);
 
-            $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
-            intval($perfilId));
+            $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,$perfilId);
 
             return $result->execute();
         }
 
         public function actualizarUsuario($idUsuario,$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
         $perfilId){
-            $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Contrasena=?, Perfilid=? WHERE Usuarioid=?";
+            
+
+            if($contrasenaUsuario == ''){
+                $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Perfilid=? WHERE Usuarioid=?";
+            }else{
+                $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Contrasena=?, Perfilid=? WHERE Usuarioid=?";
+            }
 
             $result = $this->db->prepare($sql);
 
-            $result->bind_param("ssssii",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
-            intval($perfilId),$idUsuario);
+            if($contrasenaUsuario == ''){
+                $result->bind_param("sssii",$nombre,$apellido,$nombreUsuario,intval($perfilId),$idUsuario);
+            }else{
+                $result->bind_param("ssssii",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
+                intval($perfilId),$idUsuario);
+            }
+
 
             return $result->execute();
         }

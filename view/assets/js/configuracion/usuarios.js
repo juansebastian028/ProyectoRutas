@@ -53,7 +53,7 @@ $(document).ready(function () {
           $("[name=usuarioId]").val(data.Usuarioid);
           $("[name=nombre]").val(data.Nombre);
           $("[name=apellido]").val(data.Apellido);
-          $("[name=usuario]").val(data.Usuario);
+          $("[name=usuario]").val(data.Usuario).prop('disabled', true);
           $("[name=perfilId]").val(data.Perfilid);
 
           $("#tituloModal").text("Editar Usuario");
@@ -149,5 +149,7 @@ $("#frm").on("submit", function (e) {
 $("#modalRegistro").on("hide.bs.modal", function () {
   $("#frm").trigger("reset");
   $("[name=usuarioId]").val("");
+  $("[name=usuario]").prop('disabled', false);
+  
   $("#tituloModal").text("Registrar Usuario");
 });

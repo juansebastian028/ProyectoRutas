@@ -36,7 +36,7 @@
 		</div>
 	</nav>
 
-	<div class="d-flex d-row">
+	<div class="d-flex d-row height--100">
 		<!-- Vertical Menu -->
 		<div class="vertical-menu">
 			<a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">

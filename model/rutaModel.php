@@ -43,7 +43,7 @@ class Ruta
             return 0;
         }
     }
-    
+
     public function getRutas()
     {
         $sql = 'SELECT R.RutaId, R.Numero, R.Placa FROM ruta R';
@@ -52,17 +52,21 @@ class Ruta
 
             $arr = $exec_query->fetch_all(MYSQLI_ASSOC);
 
-            for($i = 0; $i < count($arr); $i++){
+            for ($i = 0; $i < count($arr); $i++) {
                 $rutaId = $arr[$i]['RutaId'];
                 $sql = "SELECT T.Trayecto, T.Tipo FROM Trayecto T WHERE T.RutaId = '$rutaId'";
                 $exec_query = $this->db->query($sql);
                 $arrTrayectos = $exec_query->fetch_all(MYSQLI_ASSOC);
                 $ida = "";
                 $vuelta = "";
-                for($j = 0; $j < count($arrTrayectos); $j++){
-                    if($arrTrayectos[$j]['Tipo'] == 'Ida'){
+
+                for ($j = 0; $j < count($arrTrayectos); $j++) {
+
+                    if ($arrTrayectos[$j]['Tipo'] == 'Ida') {
+
                         $ida .= $arrTrayectos[$j]['Trayecto'] . ', ';
-                    }else{
+                    } else {
+
                         $vuelta .= $arrTrayectos[$j]['Trayecto'] . ', ';
                     }
                 }
@@ -76,9 +80,10 @@ class Ruta
         }
     }
 
-    public function getRutasByLimit($startRowNumber, $limitRowNumber){
-                
-        $sql = "SELECT RutaId, Numero FROM ruta LIMIT $startRowNumber,$limitRowNumber";
+    public function getListRutas()
+    {
+
+        $sql = "SELECT RutaId, Numero FROM ruta";
 
         if ($exec_query = $this->db->query($sql)) {
 
@@ -90,7 +95,8 @@ class Ruta
         }
     }
 
-    public function getNumeroDeRegistros(){
+    public function getNumeroDeRegistros()
+    {
 
         $result = $this->db->query('SELECT * FROM ruta');
         $filasAfectadas = $result->num_rows;
@@ -119,10 +125,8 @@ class Ruta
 
         if ($this->db->query($sql) && $this->db->query($sql2)) {
             return true;
-            } else {
+        } else {
             return false;
-            }
+        }
     }
 }
-
-
