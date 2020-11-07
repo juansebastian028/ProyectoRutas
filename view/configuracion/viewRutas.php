@@ -7,28 +7,28 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title> </title>
 	<!-- CSS Bootstrap -->
-	<link rel="stylesheet" href="../frameworks/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/frameworks/bootstrap/css/bootstrap.min.css">
 	<!--Own CSS-->
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 	<!--Font Awesome-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<!-- datatables -->
-	<link rel="stylesheet" href="../frameworks/dataTables/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="../frameworks/dataTables/css/dataTables.bootstrap4.css">
+	<link rel="stylesheet" href="../assets/frameworks/dataTables/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/frameworks/dataTables/css/dataTables.bootstrap4.css">
 	<!-- Alertify -->
-	<link rel="stylesheet" href="../frameworks/alertify/css/alertify.min.css" />
-	<link rel="stylesheet" href="../frameworks/alertify/css/themes/default.min.css" />
+	<link rel="stylesheet" href="../assets/frameworks/alertify/css/alertify.min.css" />
+	<link rel="stylesheet" href="../assets/frameworks/alertify/css/themes/default.min.css" />
 </head>
 
 <body>
 	<?php
-	require('../../controller/validarURL.php');
+	require('../../helpers/validarURL.php');
 	session_start();
 	if (!isset($_SESSION["username"])) {
 		header("location:../login/viewLogin.php");
 	}
 	?>
-	<!-- Nav -->
+	<!--Nav-->
 	<nav class="navbar navbar-dark bg-dark">
 		<a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
 		<div class="navbar-nav ml-auto">
@@ -36,7 +36,7 @@
 		</div>
 	</nav>
 
-	<div class="d-flex d-row">
+	<div class="d-flex d-row height--100">
 		<!-- Vertical Menu -->
 		<div class="vertical-menu">
 			<a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
@@ -143,17 +143,16 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Script Bootstrap -->
-	<script src="../frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
-	<script src="../frameworks/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
+	<script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
 
-	<script src="../frameworks/dataTables/js/jquery.dataTables.min.js"></script>
-	<script src="../frameworks/dataTables/js/dataTables.bootstrap4.js"></script>
+	<script src="../assets/frameworks/dataTables/js/jquery.dataTables.min.js"></script>
+	<script src="../assets/frameworks/dataTables/js/dataTables.bootstrap4.js"></script>
 
-	<script src="../frameworks/alertify/alertify.js"></script>
+	<script src="../assets/frameworks/alertify/alertify.js"></script>
 
-	<script src="../js/configuracion/rutas.js"></script>
+	<script src="../assets/js/configuracion/rutas.js"></script>
 
 </body>
 

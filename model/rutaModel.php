@@ -6,7 +6,7 @@ class Ruta
 
     public function __construct()
     {
-        require_once('ConexionDB.php');
+        require_once('../db/Conexion.php');
 
         $this->db = Conexion::realizarConexion();
     }
@@ -91,17 +91,21 @@ class Ruta
 
             $arr = $exec_query->fetch_all(MYSQLI_ASSOC);
 
-            for($i = 0; $i < count($arr); $i++){
+            for ($i = 0; $i < count($arr); $i++) {
                 $rutaId = $arr[$i]['RutaId'];
                 $sql = "SELECT T.Trayecto, T.Tipo FROM Trayecto T WHERE T.RutaId = '$rutaId'";
                 $exec_query = $this->db->query($sql);
                 $arrTrayectos = $exec_query->fetch_all(MYSQLI_ASSOC);
                 $ida = "";
                 $vuelta = "";
-                for($j = 0; $j < count($arrTrayectos); $j++){
-                    if($arrTrayectos[$j]['Tipo'] == 'Ida'){
+
+                for ($j = 0; $j < count($arrTrayectos); $j++) {
+
+                    if ($arrTrayectos[$j]['Tipo'] == 'Ida') {
+
                         $ida .= $arrTrayectos[$j]['Trayecto'] . ', ';
-                    }else{
+                    } else {
+
                         $vuelta .= $arrTrayectos[$j]['Trayecto'] . ', ';
                     }
                 }
@@ -113,6 +117,30 @@ class Ruta
         } else {
             return [];
         }
+    }
+
+    public function getListRutas()
+    {
+
+        $sql = "SELECT RutaId, Numero FROM ruta";
+
+        if ($exec_query = $this->db->query($sql)) {
+
+            $arr = $exec_query->fetch_all(MYSQLI_ASSOC);
+
+            return $arr;
+        } else {
+            return [];
+        }
+    }
+
+    public function getNumeroDeRegistros()
+    {
+
+        $result = $this->db->query('SELECT * FROM ruta');
+        $filasAfectadas = $result->num_rows;
+
+        return $filasAfectadas;
     }
 
     public function getTrayectos($rutaId)

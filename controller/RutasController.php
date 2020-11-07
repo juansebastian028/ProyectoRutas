@@ -1,5 +1,6 @@
 <?php
 require('../model/RutaModel.php');
+require('../helpers/Paginacion.php');
 
 $opcion = $_POST['opcion'];
 $ruta = new Ruta();
@@ -19,15 +20,10 @@ if ($opcion === "registrar") {
 } elseif ($opcion === "eliminar") {
     $id = json_decode($_POST['id']);
     echo $ruta->eliminarRuta($id);
-} elseif($opcion === "obtener"){
-
-    echo json_encode($ruta->getRutas());
-
 } elseif ($opcion === "consulta") {
 
     echo '{"data": ' . json_encode($ruta->getRutas()) . '}';
-
-} elseif ($opcion === "trayectos"){
+} elseif ($opcion === "trayectos") {
     $rutaId = $_POST['id'];
     echo json_encode($ruta->getTrayectos($rutaId));
 }

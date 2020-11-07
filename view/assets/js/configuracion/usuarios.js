@@ -25,7 +25,7 @@ $(document).ready(function () {
       },
     },
     ajax: {
-      url: "../../controller/usuarioController.php",
+      url: "../../../../controller/UsuarioController.php",
       type: "POST",
       data: function (d) {
         return $.extend(d, data);
@@ -53,7 +53,7 @@ $(document).ready(function () {
           $("[name=usuarioId]").val(data.Usuarioid);
           $("[name=nombre]").val(data.Nombre);
           $("[name=apellido]").val(data.Apellido);
-          $("[name=usuario]").val(data.Usuario);
+          $("[name=usuario]").val(data.Usuario).prop('disabled', true);
           $("[name=perfilId]").val(data.Perfilid);
 
           $("#tituloModal").text("Editar Usuario");
@@ -67,7 +67,7 @@ $(document).ready(function () {
             "¿Está seguro de eliminar el registro?",
             function () {
               $.ajax({
-                url: "../../controller/usuarioController.php",
+                url: "../../../../controller/UsuarioController.php",
                 type: "POST",
                 data: {
                   id: data.Usuarioid,
@@ -102,7 +102,7 @@ $("#frm").on("submit", function (e) {
     datos.append("opcion", "registrarse");
     $.ajax({
       data: datos,
-      url: "../../controller/usuarioController.php",
+      url: "../../../../controller/UsuarioController.php",
       type: "POST",
       processData: false,
       contentType: false,
@@ -125,7 +125,7 @@ $("#frm").on("submit", function (e) {
     datos.append("usuarioId", $("[name=usuarioId]").val());
     $.ajax({
       data: datos,
-      url: "../../controller/usuarioController.php",
+      url: "../../../../controller/UsuarioController.php",
       type: "POST",
       processData: false,
       contentType: false,
@@ -149,5 +149,7 @@ $("#frm").on("submit", function (e) {
 $("#modalRegistro").on("hide.bs.modal", function () {
   $("#frm").trigger("reset");
   $("[name=usuarioId]").val("");
+  $("[name=usuario]").prop('disabled', false);
+  
   $("#tituloModal").text("Registrar Usuario");
 });
