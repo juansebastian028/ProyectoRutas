@@ -25,7 +25,7 @@ $(document).ready(function () {
       },
     },
     ajax: {
-      url: "../../../../controller/UsuarioController.php",
+      url: "../../controller/UsuarioController.php",
       type: "POST",
       data: function (d) {
         return $.extend(d, data);
@@ -67,14 +67,14 @@ $(document).ready(function () {
             "¿Está seguro de eliminar el registro?",
             function () {
               $.ajax({
-                url: "../../../../controller/UsuarioController.php",
+                url: "../../controller/UsuarioController.php",
                 type: "POST",
                 data: {
                   id: data.Usuarioid,
                   opcion: "eliminar",
                 },
                 success: function (data) {
-                  if (data) {
+                  if (data == 1) {
                     dataTable.ajax.reload();
                     alertify.success("Registro eliminado exitosamente");
                   } else {
@@ -102,16 +102,18 @@ $("#frm").on("submit", function (e) {
     datos.append("opcion", "registrarse");
     $.ajax({
       data: datos,
-      url: "../../../../controller/UsuarioController.php",
+      url: "../../controller/UsuarioController.php",
       type: "POST",
       processData: false,
       contentType: false,
       success: function (data) {
-        if (data) {
+        if (data == 1) {
           alertify.success("Registro guardado exitosamente");
           dataTable.ajax.reload();
           $("#frm").trigger("reset");
           $("#modalRegistro").modal("hide");
+        }else if(data == 2){
+          alertify.warning("El nombre de usuario ya existe");
         } else {
           alertify.error("Ocurrio un error al guardar el registro");
         }
@@ -125,12 +127,12 @@ $("#frm").on("submit", function (e) {
     datos.append("usuarioId", $("[name=usuarioId]").val());
     $.ajax({
       data: datos,
-      url: "../../../../controller/UsuarioController.php",
+      url: "../../controller/UsuarioController.php",
       type: "POST",
       processData: false,
       contentType: false,
       success: function (data) {
-        if (data) {
+        if (data == 1) {
           alertify.success("Registro actualizado exitosamente");
           dataTable.ajax.reload();
           $("#frm").trigger("reset");

@@ -59,13 +59,27 @@
 
         public function registrarUsuario($nombre,$apellido,$nombreUsuario,$contrasenaUsuario,$perfilId){
 
-            $sql = "INSERT INTO usuario (Nombre, Apellido, Usuario, Contrasena, PerfilId) VALUES (?,?,?,?,?)";
+            $sql = "SELECT * FROM usuario WHERE Usuario= ?";
 
-            $result = $this->db->prepare($sql);
+            $stmt= $this->db->prepare($sql);
 
-            $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,$perfilId);
+            $stmt ->bind_param("s",$nombreUsuario);
 
-            return $result->execute();
+            $stmt ->execute();
+            $user = $stmt->get_result()->fetch_assoc();
+
+            if ($user == null){
+                $sql = "INSERT INTO usuario (Nombre, Apellido, Usuario, Contrasena, PerfilId) VALUES (?,?,?,?,?)";
+    
+                $result = $this->db->prepare($sql);
+    
+                $result->bind_param("ssssi",$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,$perfilId);
+    
+                return $result->execute();
+            } else {
+                return 2;
+            }
+
         }
 
         public function actualizarUsuario($idUsuario,$nombre,$apellido,$nombreUsuario,$contrasenaUsuario,
