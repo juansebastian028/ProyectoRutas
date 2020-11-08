@@ -113,7 +113,7 @@ $("[name=inputSearch]").keyup(function (e) {
   let arrBusqueda = [];
 
   arrRutas.forEach((element) => {
-    if (element.Numero.includes(e.target.value) || element.Ida.includes(e.target.value) || element.Vuelta.includes(e.target.value) ) {
+    if (element.Numero.includes(e.target.value) || element.Ida.toLowerCase().includes(e.target.value.toLowerCase()) || element.Vuelta.toLowerCase().includes(e.target.value.toLowerCase()) ) {
       arrBusqueda.push({ RutaId: element.RutaId, Numero: element.Numero });
     }
   });

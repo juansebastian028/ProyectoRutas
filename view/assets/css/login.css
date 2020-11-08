@@ -36,6 +36,12 @@ input{
 	margin-right: auto !important;
 }
 
+.inputs-container{
+	display: block;
+	width: 90% !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
 
 
 

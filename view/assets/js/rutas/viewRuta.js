@@ -1,58 +1,30 @@
-// var map;
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: 43.5293101, lng: -5.6773233},
-//     zoom: 13
-//   });
-// }
+mapboxgl.accessToken =
+  "pk.eyJ1IjoianVhbnNlYmFzdGlhbjI4IiwiYSI6ImNraDllZ3NpMDBpb2wyc3FpazE4dTl2bzAifQ.Hl0cvQVf_0jP-LEOFcGUWQ";
 
-// var map;
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: {
-//             lat: 4.8117403, lng: -75.6930379
-//         },
-//         zoom: 14,
-//     });
-//     var marker = new google.maps.Marker({
-//         position: {
-//             lat: 4.8117403, lng: -75.6930379
-//         },
-//         map: map
-//     });
-// }
+let map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v11",
+  center: [-75.6946, 4.81321],
+  zoom: 12,
+});
 
-function initMap() {
-  const directionsRenderer = new google.maps.DirectionsRenderer();
-  const directionsService = new google.maps.DirectionsService();
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14,
-    center: { lat: 37.77, lng: -122.447 },
-  });
-  directionsRenderer.setMap(map);
-  calculateAndDisplayRoute(directionsService, directionsRenderer);
-  document.getElementById("mode").addEventListener("change", () => {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-  });
-}
+map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.FullscreenControl());
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-  const selectedMode = document.getElementById("mode").value;
-  directionsService.route(
-    {
-      origin: { lat: 37.77, lng: -122.447 },
-      destination: { lat: 37.768, lng: -122.511 },
-      // Note that Javascript allows us to access the constant
-      // using square brackets and a string value as its
-      // "property."
-      travelMode: google.maps.TravelMode[selectedMode],
-    },
-    (response, status) => {
-      if (status == "OK") {
-        directionsRenderer.setDirections(response);
-      } else {
-        window.alert("Directions request failed due to " + status);
-      }
-    }
-  );
-}
+/*map.on("click", (e)=>{
+  console.log(e.lngLat.toString());
+});*/
+
+var popup = new mapboxgl.Popup({ offset: 25 }).setText("Universidad CIAF.");
+
+var marker = new mapboxgl.Marker()
+  .setLngLat([-75.7052442, 4.8127867])
+  .setPopup(popup)
+  .addTo(map);
+
+var popup2 = new mapboxgl.Popup({ offset: 25 }).setText("UTP.");
+
+var marker2 = new mapboxgl.Marker()
+  .setLngLat([-75.6905709, 4.7950488])
+  .setPopup(popup2)
+  .addTo(map);

@@ -12,24 +12,14 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1wl3SnXAn5GdplIRneLT4fQ-Nl4-cA6c&callback=initMap" async defer></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-        .div-map {
-            height: 500px !important;
-        }
-
-        #map {
-            height: 100%;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+        .mapboxgl-ctrl-compass {
+            display: none !important;
         }
     </style>
+
 </head>
 
 <body>
@@ -69,18 +59,8 @@
 
         <div class="container-fluid d-flex flex-column align-content-center justify-content-center">
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-8 div-map">
-                    <div id="floating-panel">
-                        <b>Mode of Travel: </b>
-                        <select id="mode">
-                            <option value="DRIVING">Driving</option>
-                            <option value="WALKING">Walking</option>
-                            <option value="BICYCLING">Bicycling</option>
-                            <option value="TRANSIT">Transit</option>
-                        </select>
-                    </div>
-
-                    <div id="map"> </div>
+                <div class="col-12 col-md-8 col-lg-8">
+                     <div id='map' style='width: 100%; height: 500px;'></div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="row">

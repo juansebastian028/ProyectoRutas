@@ -1,12 +1,13 @@
 $("#ingresar").on("click", function (e) {
   e.preventDefault();
-
+  console.log("click")
   var form = $("#form")[0];
+  console.log(form);
   var formData = new FormData(form);
+  console.log(formData);
   formData.append("opcion", "login");
-
   $.ajax({
-    url: "../../../../controller/UsuarioController.php",
+    url: "../../controller/UsuarioController.php",
     type: "post",
     data: formData,
     processData: false,
@@ -23,3 +24,23 @@ $("#ingresar").on("click", function (e) {
     },
   });
 });
+
+$("#eyePassword").click(function(e) {
+
+  e.preventDefault();
+
+  if($("#inputPassword").attr("type") === "text"){
+
+    $("#inputPassword").attr("type","password");
+    $("#eyePassword i").removeClass( "fa-eye-slash" );
+    $("#eyePassword i").addClass( "fa-eye" );
+  }else{
+    $("#inputPassword").attr("type","text");
+    $("#eyePassword i").addClass( "fa-eye-slash" );
+    $("#eyePassword i").removeClass( "fa-eye");
+  }
+});
+
+
+
+

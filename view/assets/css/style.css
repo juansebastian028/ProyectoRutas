@@ -50,3 +50,13 @@ html,body {
 .bg-gray{
     background-color: #E0E0E0;
 }
+
+.table-content { 
+    display: block; 
+    width: 100%; 
+    overflow-y: auto;
+    max-height: 200px; 
+ }
+ #tblTrayectos {
+     width: 100%;
+ }

@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="../assets/css/login.css">
 	<link rel="stylesheet" href="../assets/frameworks/bootstrap/css/bootstrap.min.css">
 	<title>Login</title>
+	<!--Font Awesome-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<!-- Alertify -->
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/alertify.min.css" />
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/themes/default.min.css" />
@@ -22,7 +24,12 @@
 				<input class="form-control" type="text" name="usuario" placeholder="Ingrese su nombre de usuario" maxlength="20" minlength="1">
 
 				<label for="password">Contraseña</label>
-				<input class="form-control" type="password" name="password" placeholder="Ingrese su contraseña" maxlength="20" minlength="1">
+
+				<div class="input-group inputs-container">
+					<input id="inputPassword" class="form-control pwd" name="password" type="password" placeholder="Ingrese su contraseña" maxlength="20" minlength="1">
+
+					<button id="eyePassword" class="form-control d-flex justify-content-center align-items-center"><i class="fa fa-eye" aria-hidden="true"></i></button>
+				</div>
 
 				<input class="btn btn-primary btn-block my-2" type="submit" id="ingresar" name="ingresar" value="Ingresar">
 			</div>

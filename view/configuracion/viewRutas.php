@@ -18,18 +18,6 @@
 	<!-- Alertify -->
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/alertify.min.css" />
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/themes/default.min.css" />
-
-	<style>
-       .table-content { 
-		   display: block; 
-		   width: 100%; 
-		   overflow-y: scroll;
-		   height: 300px; 
-		}
-        #tblTrayectos {
-			width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -44,7 +32,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
 		<div class="navbar-nav ml-auto">
-			<a class="nav-item nav-link" href="../../controller/cerrarSesion.php">Cerrar Sesión</a>
+			<a class="nav-item nav-link" href="../../helpers/cerrarSesion.php">Cerrar Sesión</a>
 		</div>
 	</nav>
 
