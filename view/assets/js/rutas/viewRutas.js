@@ -82,14 +82,13 @@ $(document).ready(function () {
     },
     success: function (data) {
       const arr = JSON.parse(data);
-      console.log(arr);
       arrRutas = arr.rutas;
       totalPaginas = arr.totalPaginas;
       drawCards(arrRutas);
       drawPagination(totalPaginas);
     },
     error: function (error) {
-      console.log(error);
+      alertify.error(error);
     },
   });
 });

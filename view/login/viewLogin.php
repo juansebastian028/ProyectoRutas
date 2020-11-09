@@ -16,23 +16,25 @@
 
 <body>
 	<div class="box">
-		<form class="form" id="form" method="POST">
-			<div>
-				<h1 class="text-center h2">Iniciar sesión </h1>
+		<form class="form" id="form">
 
-				<label for="usuario">Usuario</label>
-				<input class="form-control" type="text" name="usuario" placeholder="Ingrese su nombre de usuario" maxlength="20" minlength="1">
+			<h1 class="text-center h2">Iniciar sesión</h1>
 
-				<label for="password">Contraseña</label>
+			<label for="usuario">Usuario</label>
+			<input class="form-control" type="text" name="usuario" placeholder="Ingrese su nombre de usuario">
 
-				<div class="input-group inputs-container">
-					<input id="inputPassword" class="form-control pwd" name="password" type="password" placeholder="Ingrese su contraseña" maxlength="20" minlength="1">
+			<label for="password">Contraseña</label>
 
-					<button id="eyePassword" class="form-control d-flex justify-content-center align-items-center"><i class="fa fa-eye" aria-hidden="true"></i></button>
-				</div>
+			<div class="input-group inputs-container">
+				<input id="inputPassword" class="form-control pwd" name="password" type="password" placeholder="Ingrese su contraseña">
 
-				<input class="btn btn-primary btn-block my-2" type="submit" id="ingresar" name="ingresar" value="Ingresar">
+				<button id="eyePassword" class="form-control d-flex justify-content-center align-items-center">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+				</button>
 			</div>
+
+			<input class="btn btn-primary btn-block my-2" type="submit" id="ingresar" name="ingresar" value="Ingresar">
+
 		</form>
 	</div>
 

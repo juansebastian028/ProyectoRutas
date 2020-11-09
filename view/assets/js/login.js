@@ -1,10 +1,7 @@
 $("#ingresar").on("click", function (e) {
   e.preventDefault();
-  console.log("click")
   let form = $("#form")[0];
-  console.log(form);
   let formData = new FormData(form);
-  console.log(formData);
   formData.append("opcion", "login");
   $.ajax({
     url: "../../controller/UsuarioController.php",
@@ -20,7 +17,7 @@ $("#ingresar").on("click", function (e) {
       }
     },
     error: function (error) {
-      console.log(error);
+      alertify.error(error);
     },
   });
 });
