@@ -1,9 +1,9 @@
 $("#ingresar").on("click", function (e) {
   e.preventDefault();
   console.log("click")
-  var form = $("#form")[0];
+  let form = $("#form")[0];
   console.log(form);
-  var formData = new FormData(form);
+  let formData = new FormData(form);
   console.log(formData);
   formData.append("opcion", "login");
   $.ajax({

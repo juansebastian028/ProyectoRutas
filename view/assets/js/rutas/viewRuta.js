@@ -15,16 +15,16 @@ map.addControl(new mapboxgl.FullscreenControl());
   console.log(e.lngLat.toString());
 });*/
 
-var popup = new mapboxgl.Popup({ offset: 25 }).setText("Universidad CIAF.");
+let popup = new mapboxgl.Popup({ offset: 25 }).setText("Universidad CIAF.");
 
-var marker = new mapboxgl.Marker()
+let marker = new mapboxgl.Marker()
   .setLngLat([-75.7052442, 4.8127867])
   .setPopup(popup)
   .addTo(map);
 
-var popup2 = new mapboxgl.Popup({ offset: 25 }).setText("UTP.");
+let popup2 = new mapboxgl.Popup({ offset: 25 }).setText("UTP.");
 
-var marker2 = new mapboxgl.Marker()
+let marker2 = new mapboxgl.Marker()
   .setLngLat([-75.6905709, 4.7950488])
   .setPopup(popup2)
   .addTo(map);

@@ -98,7 +98,7 @@ $(document).ready(function () {
             },
           });
 
-          $("#tituloModal").text("Editar Usuario");
+          $("#tituloModal").text("Editar Ruta");
         });
 
       $(row)

@@ -1,6 +1,6 @@
-var dataTable;
+let dataTable;
 $(document).ready(function () {
-  var data = {
+  let data = {
     opcion: "consulta",
   };
   dataTable = $("#tblUsuarios").DataTable({
