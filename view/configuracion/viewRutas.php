@@ -18,6 +18,17 @@
 	<!-- Alertify -->
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/alertify.min.css" />
 	<link rel="stylesheet" href="../assets/frameworks/alertify/css/themes/default.min.css" />
+	<!--Mapbox-->
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
+
+	<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+	<style>
+		.mapboxgl-ctrl-compass {
+			display: none !important;
+		}
+	</style>
 </head>
 
 <body>
@@ -79,6 +90,7 @@
 			</div>
 		</div>
 
+		<!-- Modal Registro y edición de Rutas -->
 		<div class="modal fade" id="modalRegistro" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -115,6 +127,9 @@
 										</select>
 									</div>
 								</div>
+								<div class="col-12 mb-2">
+									<button class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalMapa">Seleccionar ubicación en el mapa</button>
+								</div>
 								<div class="col-5 mb-2">
 									<button class="btn btn-success" id="btnAgregarTrayecto">Agregar</button>
 								</div>
@@ -141,6 +156,28 @@
 				</div>
 			</div>
 		</div>
+
+		<!--Modal mapa-->
+		<div class="modal" id="modalMapa" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Mapa</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Elige una ubicación en el mapa y da click para guardas la coodernadas.</p>
+						<div id='map' style='width: 100%; height: 400px;'></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Guardar</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- Script Bootstrap -->
 	<script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
@@ -151,6 +188,7 @@
 
 	<script src="../assets/frameworks/alertify/alertify.js"></script>
 
+	<script src="../assets/js/configuracion/mapa.js"></script>
 	<script src="../assets/js/configuracion/rutas.js"></script>
 
 </body>

@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!--Mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
     <style>
         .mapboxgl-ctrl-compass {
             display: none !important;
@@ -36,7 +38,7 @@
             </a>
         </div>
     </nav>
-
+ 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
