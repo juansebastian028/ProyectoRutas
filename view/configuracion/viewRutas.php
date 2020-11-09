@@ -101,8 +101,10 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form action="#" method="POST" id="frm">
+						<form method="POST" id="frm">
 							<input type="hidden" name="id">
+							<input type="hidden" name="longitud">
+  							<input type="hidden" name="latitud">
 							<div class="form-group">
 								<label for="nRuta" class="col-form-label">N° Ruta</label>
 								<input type="text" class="form-control" placeholder="Ingrese el número de ruta" name="ruta" maxlength="30" required>
@@ -128,7 +130,7 @@
 									</div>
 								</div>
 								<div class="col-12 mb-2">
-									<button class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalMapa">Seleccionar ubicación en el mapa</button>
+									<button id="btnModalMapa" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalMapa">Seleccionar ubicación en el mapa</button>
 								</div>
 								<div class="col-5 mb-2">
 									<button class="btn btn-success" id="btnAgregarTrayecto">Agregar</button>
@@ -139,7 +141,9 @@
 											<tr>
 												<th>Trayecto</th>
 												<th>Tipo</th>
-												<th></th>
+												<th>Latitud</th>
+												<th>Longitud</th>
+												<th>Eliminar</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -168,12 +172,11 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<p>Elige una ubicación en el mapa y da click para guardas la coodernadas.</p>
+						<p>Arrastra el marcador hacia una ubicación en el mapa y cuando salga la alerta cierra el modal.</p>
 						<div id='map' style='width: 100%; height: 400px;'></div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary">Guardar</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-secondary" id="btnCerrarMapa" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
 			</div>

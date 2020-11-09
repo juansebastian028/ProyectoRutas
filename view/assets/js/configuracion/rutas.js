@@ -39,14 +39,9 @@ $(document).ready(function () {
       { data: "Vuelta" },
       { defaultContent: "" },
     ],
-    columnDefs: [
-      { visible: false, targets: [0, 2] },
-      { width: "10%", targets: [1] },
-      { width: "30%", targets: [3, 4] },
-      { width: "10%", targets: [5] },
-    ],
+    columnDefs: [{ visible: true, targets: [0, 5] }],
     createdRow: function (row, data, index) {
-      $(row).find("td:eq(3)").html(`
+      $(row).find("td:eq(5)").html(`
                 <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
                 <button class="btn btn-sm btn-danger">Eliminar</button>
             `);
@@ -70,18 +65,21 @@ $(document).ready(function () {
             success: function (resp) {
               try {
                 var resp = JSON.parse(resp);
+                console.log(resp);
               } catch (error) {
                 console.log(error);
               }
 
-              if(resp.length > 0){
+              if (resp.length > 0) {
                 cad = "";
 
-                for(var i = 0; i < resp.length; i++){
+                for (var i = 0; i < resp.length; i++) {
                   cad += `
                     <tr>
                       <td>${resp[i].Trayecto}</td>
                       <td>${resp[i].Tipo}</td>
+                      <td>${resp[i].Latitud}</td>
+                      <td>${resp[i].Longitud}</td>
                       <td>
                         <center><button class="btn btn-sm btn-danger">X</button></center>
                       </td>
@@ -89,8 +87,8 @@ $(document).ready(function () {
                   `;
                 }
 
-                $('#tblTrayectos tbody').html('');
-                $('#tblTrayectos tbody').append(cad);
+                $("#tblTrayectos tbody").html("");
+                $("#tblTrayectos tbody").append(cad);
               }
             },
             error: function (error) {
@@ -137,17 +135,17 @@ $(document).ready(function () {
 
 $("#frm").on("submit", function (e) {
   e.preventDefault();
-  var nRuta = $('[name=ruta]').val();
-  var nPlaca = $('[name=placa]').val();
+  var nRuta = $("[name=ruta]").val();
+  var nPlaca = $("[name=placa]").val();
 
-  if($('#tblTrayectos tbody').find('tr').length == 0){
+  if ($("#tblTrayectos tbody").find("tr").length === 0) {
     alertify.warning("Ingrese el trayecto de la ruta");
     return;
   }
 
   var parametros = {
-    nRuta: nRuta,
-    nPlaca: nPlaca,
+    nRuta,
+    nPlaca,
     opcion: "registrar",
   };
 
@@ -158,14 +156,15 @@ $("#frm").on("submit", function (e) {
       trayectos.push({
         trayecto: $(this).find("td:eq(0)").text(),
         tipo: $(this).find("td:eq(1)").text(),
+        latitud: $(this).find("td:eq(2)").text(),
+        longitud: $(this).find("td:eq(3)").text(),
       });
     });
 
   parametros.trayectos = trayectos;
-
-  if($('[name=id').val() != ''){
-    parametros.opcion = 'actualizar';
-    parametros.id = $('[name=id]').val();
+  if ($("[name=id").val() !== "") {
+    parametros.opcion = "actualizar";
+    parametros.id = $("[name=id]").val();
   }
 
   $.ajax({
@@ -173,7 +172,7 @@ $("#frm").on("submit", function (e) {
     type: "POST",
     data: parametros,
     success: function (data) {
-      if (data == 1) {
+      if (data === "1") {
         alertify.success("Registro guardado exitosamente");
         dataTable.ajax.reload();
         $("#frm").trigger("reset");
@@ -189,38 +188,49 @@ $("#frm").on("submit", function (e) {
   });
 });
 
-
 $("#modalRegistro").on("hide.bs.modal", function () {
   $("#frm").trigger("reset");
-  $('#tblTrayectos tbody').html('');
+  $("#tblTrayectos tbody").html("");
   $("[name=id]").val("");
   $("#tituloModal").text("Registrar Ruta");
 });
 
-$('#btnAgregarTrayecto').on('click', function(e){
+$("#btnAgregarTrayecto").on("click", function (e) {
   e.preventDefault();
-  
-  if($('[name=trayecto]').val() == ""){
+  if ($("[name=trayecto]").val() === "") {
     alertify.warning("Ingrese el trayecto");
+    return;
+  }
+
+  if (!$("[name=latitud]").val() || !$("[name=longitud]").val()) {
+    alertify.warning("Seleccione la ubicación en el mapa");
     return;
   }
 
   let cad = `
     <tr>
-      <td>${$('[name=trayecto]').val()}</td>
-      <td>${$('[name=tipo]').val()}</td>
+      <td>${$("[name=trayecto]").val()}</td>
+      <td>${$("[name=tipo]").val()}</td>
+      <td>${$("[name=latitud]").val()}</td>
+      <td>${$("[name=longitud]").val()}</td>
       <td>
         <center><button class="btn btn-sm btn-danger">X</button></center>
       </td>
     </tr>
   `;
 
-  $('#tblTrayectos tbody').append(cad);
-  $('[name=trayecto]').val("");
+  $("#tblTrayectos tbody").append(cad);
+  $("[name=trayecto]").val("");
+  $("[name=latitud]").val("");
+  $("[name=longitud]").val("");
 });
 
-$('#tblTrayectos').on('click', '.btn-danger', function(e){
+$("#tblTrayectos").on("click", ".btn-danger", function (e) {
   e.preventDefault();
-  
-  $(this).closest('tr').remove();
+
+  $(this).closest("tr").remove();
+});
+
+$("#btnModalMapa").click(function (e) {
+  e.preventDefault();
 });

@@ -30,11 +30,11 @@ class Ruta
             $rutaId = $arr[0]['RutaId'];
 
             for ($i = 0; $i < count($trayectos); $i++) {
-                $sql = "INSERT INTO Trayecto (Trayecto,Tipo, RutaId) VALUES (?,?,?)";
+                $sql = "INSERT INTO Trayecto (Trayecto, Tipo, RutaId, Latitud, Longitud) VALUES (?,?,?,?,?)";
 
                 $result = $this->db->prepare($sql);
 
-                $result->bind_param("ssi", $trayectos[$i]['trayecto'], $trayectos[$i]['tipo'], $rutaId);
+                $result->bind_param("ssiss", $trayectos[$i]['trayecto'], $trayectos[$i]['tipo'], $rutaId, $trayectos[$i]['latitud'], $trayectos[$i]['longitud']);
                 $result->execute();
             }
 
@@ -60,18 +60,18 @@ class Ruta
         $result->bind_param("isi", $nRuta, $nPlaca, $id);
 
         $result->execute();
-            $rutaId = $id;
+        $rutaId = $id;
 
-            for ($i = 0; $i < count($trayectos); $i++) {
-                $sql = "INSERT INTO Trayecto (Trayecto,Tipo, RutaId) VALUES (?,?,?)";
+        for ($i = 0; $i < count($trayectos); $i++) {
+            $sql = "INSERT INTO Trayecto (Trayecto,Tipo,RutaId,Latitud,Longitud) VALUES (?,?,?,?,?)";
 
-                $result = $this->db->prepare($sql);
+            $result = $this->db->prepare($sql);
 
-                $result->bind_param("ssi", $trayectos[$i]['trayecto'], $trayectos[$i]['tipo'], $rutaId);
-                $result->execute();
-            }
+            $result->bind_param("ssiss", $trayectos[$i]['trayecto'], $trayectos[$i]['tipo'], $rutaId, $trayectos[$i]['latitud'], $trayectos[$i]['longitud']);
+            $result->execute();
+        }
 
-            return 1;
+        return 1;
     }
 
     public function eliminarRuta($id)
@@ -81,9 +81,9 @@ class Ruta
 
         if ($this->db->query($sql) && $this->db->query($sql2)) {
             return true;
-            } else {
+        } else {
             return false;
-            }
+        }
     }
 
     public function getRutas()
@@ -96,7 +96,7 @@ class Ruta
 
             for ($i = 0; $i < count($arr); $i++) {
                 $rutaId = $arr[$i]['RutaId'];
-                $sql = "SELECT T.Trayecto, T.Tipo FROM Trayecto T WHERE T.RutaId = '$rutaId'";
+                $sql = "SELECT T.Trayecto, T.Tipo, T.Latitud, T.Longitud FROM Trayecto T WHERE T.RutaId = '$rutaId'";
                 $exec_query = $this->db->query($sql);
                 $arrTrayectos = $exec_query->fetch_all(MYSQLI_ASSOC);
                 $ida = "";
@@ -133,7 +133,7 @@ class Ruta
 
     public function getTrayectos($rutaId)
     {
-        $sql = "SELECT T.Trayecto, T.Tipo FROM Trayecto T WHERE T.RutaId = '$rutaId'";
+        $sql = "SELECT T.Trayecto, T.Tipo, T.Latitud, T.Longitud FROM Trayecto T WHERE T.RutaId = '$rutaId'";
 
         if ($exec_query = $this->db->query($sql)) {
 

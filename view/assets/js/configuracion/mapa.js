@@ -11,18 +11,6 @@ let map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 map.addControl(new mapboxgl.FullscreenControl());
 
-map.addControl(
-  new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-  }), "top-left"
-);
-
-/*map.on("click", (e) => {
-  console.log(e.lngLat.toString());
-  alertify.success("Coordenas agregadas con éxito");
-});*/
-
 let marker = new mapboxgl.Marker({
   draggable: true,
 })
@@ -31,9 +19,33 @@ let marker = new mapboxgl.Marker({
 
 function onDragEnd() {
   var lngLat = marker.getLngLat();
-  coordinates.style.display = "block";
-  coordinates.innerHTML =
-    "Longitude: " + lngLat.lng + "<br />Latitude: " + lngLat.lat;
+  $("[name=longitud]").val(lngLat.lng);
+  $("[name=latitud]").val(lngLat.lat);
+  alertify.success("Coordenadas guardadas con éxito");
 }
 
+let geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  mapboxgl: mapboxgl,
+  marker: false,
+});
+
+geocoder.on("result", (e) => {
+  marker.setLngLat(e.result.center).addTo(map);
+  marker.on("dragend", onDragEnd);
+});
+
+map.addControl(geocoder, "top-left");
+
 marker.on("dragend", onDragEnd);
+
+$("#modalMapa").on("shown.bs.modal", function () {
+  map.resize();
+  geocoder.clear();
+
+  map.flyTo({
+    center: [-75.6946, 4.81321],
+    zoom: 12,
+  });
+  marker.setLngLat([-75.6946, 4.81321]).addTo(map);
+});
