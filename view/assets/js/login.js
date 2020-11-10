@@ -1,4 +1,4 @@
-$("#ingresar").on("click", function (e) {
+$("#form").submit(function (e) {
   e.preventDefault();
   let form = $("#form")[0];
   let formData = new FormData(form);
@@ -22,22 +22,16 @@ $("#ingresar").on("click", function (e) {
   });
 });
 
-$("#eyePassword").click(function(e) {
-
+$("#eyePassword").click(function (e) {
   e.preventDefault();
 
-  if($("#inputPassword").attr("type") === "text"){
-
-    $("#inputPassword").attr("type","password");
-    $("#eyePassword i").removeClass( "fa-eye-slash" );
-    $("#eyePassword i").addClass( "fa-eye" );
-  }else{
-    $("#inputPassword").attr("type","text");
-    $("#eyePassword i").addClass( "fa-eye-slash" );
-    $("#eyePassword i").removeClass( "fa-eye");
+  if ($("#inputPassword").attr("type") === "text") {
+    $("#inputPassword").attr("type", "password");
+    $("#eyePassword i").removeClass("fa-eye-slash");
+    $("#eyePassword i").addClass("fa-eye");
+  } else {
+    $("#inputPassword").attr("type", "text");
+    $("#eyePassword i").addClass("fa-eye-slash");
+    $("#eyePassword i").removeClass("fa-eye");
   }
 });
-
-
-
-

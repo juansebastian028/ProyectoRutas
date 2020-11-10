@@ -70,7 +70,7 @@ const drawPagination = (totalPaginas) => {
     }
   }
   $pagination.appendChild($fragment);
-  $($(".page-link")[0]).closest('li').addClass("disabled");
+  $($(".page-link")[0]).closest("li").addClass("disabled");
 };
 
 $(document).ready(function () {
@@ -96,7 +96,7 @@ $(document).ready(function () {
 $("#rutas-pagination").on("click", ".page-link", function () {
   $("#cards-container").html(arrRutasPorPagina[$(this).data("page")]);
   $(".page-item").removeClass("disabled");
-  $(this).closest('li').addClass("disabled");
+  $(this).closest("li").addClass("disabled");
 });
 
 $("[name=inputSearch]").keyup(function (e) {
@@ -107,7 +107,11 @@ $("[name=inputSearch]").keyup(function (e) {
   let arrBusqueda = [];
 
   arrRutas.forEach((element) => {
-    if (element.Numero.includes(e.target.value) || element.Ida.toLowerCase().includes(e.target.value.toLowerCase()) || element.Vuelta.toLowerCase().includes(e.target.value.toLowerCase()) ) {
+    if (
+      element.Numero.includes(e.target.value) ||
+      element.Ida.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      element.Vuelta.toLowerCase().includes(e.target.value.toLowerCase())
+    ) {
       arrBusqueda.push({ RutaId: element.RutaId, Numero: element.Numero });
     }
   });

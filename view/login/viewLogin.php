@@ -33,7 +33,7 @@
 				</button>
 			</div>
 
-			<input class="btn btn-primary btn-block my-2" type="submit" id="ingresar" name="ingresar" value="Ingresar">
+			<input class="btn btn-primary btn-block my-2" type="submit" name="ingresar" value="Ingresar">
 
 		</form>
 	</div>
