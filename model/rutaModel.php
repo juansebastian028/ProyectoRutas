@@ -1,4 +1,5 @@
 <?php
+require($_SERVER['DOCUMENT_ROOT'] . '/db/Conexion.php');
 class Ruta
 {
 
@@ -6,8 +7,6 @@ class Ruta
 
     public function __construct()
     {
-        require_once('../db/Conexion.php');
-
         $this->db = Conexion::realizarConexion();
     }
 

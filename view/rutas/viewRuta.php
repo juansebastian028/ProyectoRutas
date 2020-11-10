@@ -1,3 +1,13 @@
+<?php
+require('../../helpers/validarURL.php');
+require('../../model/rutaModel.php');
+session_start();
+$ruta = new Ruta();
+if (isset($_GET['id'])) {
+
+    $arrTrayectos = $ruta->getTrayectos($_GET['id']);
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,10 +35,6 @@
 </head>
 
 <body>
-    <?php
-    require('../../helpers/validarURL.php');
-    session_start();
-    ?>
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="btn btn-outline-light" href="viewRutas.php">Volver</a>
@@ -38,7 +44,7 @@
             </a>
         </div>
     </nav>
- 
+
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
@@ -62,35 +68,29 @@
         <div class="container-fluid d-flex flex-column align-content-center justify-content-center">
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-8">
-                     <div id='map' style='width: 100%; height: 500px;'></div>
+                    <div id='map' style='width: 100%; height: 500px;'></div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="row">
                         <div class="col-12">
-                            <table class="table table-bordered table-sm table-hover table-fixed table-striped">
+                            <table id="tablaTrayectoIda" class="table table-bordered table-sm table-hover table-fixed table-striped">
                                 <thead class="bg-primary text-white">
                                     <tr>
                                         <th>Trayecto de ida</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-12">
-                            <table class="table table-bordered table-sm table-hover table-fixed table-striped">
+                            <table id="tablaTrayectoVuelta" class="table table-bordered table-sm table-hover table-fixed table-striped">
                                 <thead class="bg-primary text-white">
                                     <tr>
                                         <th>Trayecto de vuelta</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -102,8 +102,12 @@
         <!-- Script Bootstrap -->
         <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
         <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
-
+        <script>
+            let arrTrayectos = <?= json_encode($arrTrayectos) ?>;
+            console.log(arrTrayectos);
+        </script>
         <script src="../assets/js/rutas/viewRuta.js"></script>
+
 
 </body>
 

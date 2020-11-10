@@ -1,3 +1,7 @@
+const $tablaTrayectosIda = document.getElementById("tablaTrayectoIda"),
+$tablaTrayectosVuelta = document.getElementById("tablaTrayectoVuelta");
+
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoianVhbnNlYmFzdGlhbjI4IiwiYSI6ImNraDllZ3NpMDBpb2wyc3FpazE4dTl2bzAifQ.Hl0cvQVf_0jP-LEOFcGUWQ";
 
@@ -11,20 +15,32 @@ let map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 map.addControl(new mapboxgl.FullscreenControl());
 
-/*map.on("click", (e)=>{
-  console.log(e.lngLat.toString());
-});*/
+let marker;
+let popup;
+let contentTablaIda = "";
+let contentTablaVuelta = "";
 
-let popup = new mapboxgl.Popup({ offset: 25 }).setText("Universidad CIAF.");
+arrTrayectos.forEach((element) => {
+  popup = new mapboxgl.Popup({ offset: 25 }).setText(element.Trayecto);
+  marker = new mapboxgl.Marker()
+    .setLngLat([element.Longitud, element.Latitud])
+    .setPopup(popup)
+    .addTo(map);
 
-let marker = new mapboxgl.Marker()
-  .setLngLat([-75.7052442, 4.8127867])
-  .setPopup(popup)
-  .addTo(map);
+  if (element.Tipo === "Ida") {
+    contentTablaIda += `
+      <tr>
+        <td>${element.Trayecto}</td>
+      </tr>`;
 
-let popup2 = new mapboxgl.Popup({ offset: 25 }).setText("UTP.");
+  } else {
+    contentTablaVuelta += `
+    <tr>
+      <td>${element.Trayecto}</td>
+    </tr>`;
 
-let marker2 = new mapboxgl.Marker()
-  .setLngLat([-75.6905709, 4.7950488])
-  .setPopup(popup2)
-  .addTo(map);
+  }
+});
+
+$tablaTrayectosIda.querySelector("tbody").innerHTML = contentTablaIda;
+$tablaTrayectosVuelta.querySelector("tbody").innerHTML = contentTablaVuelta;
