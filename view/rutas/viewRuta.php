@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> </title>
+    <title>Trayecto de Rutas</title>
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="../assets/frameworks/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
@@ -104,7 +104,6 @@ if (isset($_GET['id'])) {
         <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
         <script>
             let arrTrayectos = <?= json_encode($arrTrayectos) ?>;
-            console.log(arrTrayectos);
         </script>
         <script src="../assets/js/rutas/viewRuta.js"></script>
 

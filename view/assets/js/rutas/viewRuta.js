@@ -1,7 +1,6 @@
 const $tablaTrayectosIda = document.getElementById("tablaTrayectoIda"),
 $tablaTrayectosVuelta = document.getElementById("tablaTrayectoVuelta");
 
-
 mapboxgl.accessToken =
   "pk.eyJ1IjoianVhbnNlYmFzdGlhbjI4IiwiYSI6ImNraDllZ3NpMDBpb2wyc3FpazE4dTl2bzAifQ.Hl0cvQVf_0jP-LEOFcGUWQ";
 

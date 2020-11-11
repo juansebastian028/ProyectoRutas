@@ -1,5 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/db/Conexion.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/ProyectoRutas/db/Conexion.php');
 class Ruta
 {
 
@@ -132,7 +132,7 @@ class Ruta
 
     public function getTrayectos($rutaId)
     {
-        $sql = "SELECT T.Trayecto, T.Tipo, T.Latitud, T.Longitud FROM Trayecto T WHERE T.RutaId = '$rutaId'";
+        $sql = "SELECT T.Trayecto, T.Tipo, IF(T.Latitud IS NULL, '', T.Latitud) AS Latitud, IF(T.Longitud IS NULL, '', T.Longitud) AS Longitud FROM Trayecto T WHERE T.RutaId = '$rutaId'";
 
         if ($exec_query = $this->db->query($sql)) {
 

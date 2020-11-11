@@ -1,5 +1,5 @@
 <?php 
-    require($_SERVER['DOCUMENT_ROOT'] . '/db/config.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/ProyectoRutas/db/config.php');
 
     class Conexion{
         public static function realizarConexion(){

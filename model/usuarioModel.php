@@ -1,5 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/db/Conexion.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/ProyectoRutas/db/Conexion.php');
 class Usuario
 {
 
