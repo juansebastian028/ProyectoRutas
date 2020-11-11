@@ -72,7 +72,7 @@
 					<button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
 				</div>
 				<div class="col-12">
-					<table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblRutas">
+					<table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblRutas" >
 						<thead class="bg-primary text-white">
 							<tr>
 								<th>Id</th>
@@ -104,7 +104,7 @@
 						<form method="POST" id="frm">
 							<input type="hidden" name="id">
 							<input type="hidden" name="longitud">
-  							<input type="hidden" name="latitud">
+							<input type="hidden" name="latitud">
 							<div class="form-group">
 								<label for="nRuta" class="col-form-label">N° Ruta</label>
 								<input type="text" class="form-control" placeholder="Ingrese el número de ruta" name="ruta" maxlength="30" required>

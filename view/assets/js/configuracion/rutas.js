@@ -4,6 +4,8 @@ $(document).ready(function () {
     opcion: "consulta",
   };
   dataTable = $("#tblRutas").DataTable({
+    autoWidth: false,
+    responsive: true,
     language: {
       decimal: "",
       emptyTable: "No hay información",
@@ -39,9 +41,9 @@ $(document).ready(function () {
       { data: "Vuelta" },
       { defaultContent: "" },
     ],
-    columnDefs: [{ visible: true, targets: [0, 5] }],
+    columnDefs: [{ visible: false, targets: [0] }],
     createdRow: function (row, data, index) {
-      $(row).find("td:eq(5)").html(`
+      $(row).find("td:eq(4)").html(`
                 <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
                 <button class="btn btn-sm btn-danger">Eliminar</button>
             `);
@@ -233,4 +235,10 @@ $("#tblTrayectos").on("click", ".btn-danger", function (e) {
 
 $("#btnModalMapa").click(function (e) {
   e.preventDefault();
+});
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+  $($.fn.dataTable.tables({ visible: true, api: true })).DataTable()
+     .columns.adjust()
+     .responsive.recalc();
 });

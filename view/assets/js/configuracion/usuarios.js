@@ -4,6 +4,8 @@ $(document).ready(function () {
     opcion: "consulta",
   };
   dataTable = $("#tblUsuarios").DataTable({
+    autoWidth: false,
+    responsive: true,
     language: {
       decimal: "",
       emptyTable: "No hay información",
@@ -40,9 +42,9 @@ $(document).ready(function () {
       { data: "Perfilid" },
       { defaultContent: "" },
     ],
-    columnDefs: [{ visible: false, targets: [0, 5] }],
+    columnDefs: [{ visible: false, targets: [0,2,5] }],
     createdRow: function (row, data, index) {
-      $(row).find("td:eq(4)").html(`
+      $(row).find("td:eq(3)").html(`
                 <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
                 <button class="btn btn-sm btn-danger">Eliminar</button>
             `);
@@ -149,9 +151,17 @@ $("#frm").on("submit", function (e) {
 });
 
 $("#modalRegistro").on("hide.bs.modal", function () {
+
   $("#frm").trigger("reset");
   $("[name=usuarioId]").val("");
   $("[name=usuario]").prop('disabled', false);
   
   $("#tituloModal").text("Registrar Usuario");
 });
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+  $($.fn.dataTable.tables({ visible: true, api: true })).DataTable()
+     .columns.adjust()
+     .responsive.recalc();
+});
+ 

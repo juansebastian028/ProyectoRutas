@@ -27,7 +27,6 @@
             </a>
         </div>
     </nav>
-
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
