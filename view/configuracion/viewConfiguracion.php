@@ -23,7 +23,7 @@
     }
     ?>
     <!-- Nav -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-black">
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="../../helpers/cerrarSesion.php">Cerrar Sesión</a>
         </div>
@@ -32,13 +32,20 @@
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
-                <i class="vertical-menu__icon fas fa-cog"></i>
-                <h4 class="vertical-menu__title">Configuración</h4>
-            </a>
+            <div class="text-center my-2">
+                <label class="switch">
+                    <input class="switch__checkbox" type="checkbox">
+                    <span class="switch__slider switch__round"></span>
+                </label>
+                <h4 class="vertical-menu__title font-color">Dark Mode</h4>
+            </div>
             <a class="vertical-menu__link" href="../rutas/viewRutas.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title">Rutas</h4>
+            </a>
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
+                <i class="vertical-menu__icon fas fa-cog"></i>
+                <h4 class="vertical-menu__title">Configuración</h4>
             </a>
         </div>
 
@@ -46,11 +53,11 @@
             <div class="row d-flex flex-row justify-content-center align-content-center height--100">
                 <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
                     <a class="d-block w-100 p-0 link-icon" href="viewUsuarios.php">
-                        <div class="card">
-                            <div class="container-fluid bg-gray text-center py-4">
+                        <div class="card border-0">
+                            <div class="container-fluid primary-color text-center py-4">
                                 <i class="fas fa-user display-1"></i>
                             </div>
-                            <div class="container-fluid bg-gray-dark text-center py-2">
+                            <div class="container-fluid secondary-color text-center py-2">
                                 <h5 class="card-title mb-0">Usuarios</h5>
                             </div>
                         </div>
@@ -58,11 +65,11 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
                     <a class="d-block w-100 p-0 link-icon" href="viewRutas.php">
-                        <div class="card">
-                            <div class="container-fluid bg-gray text-center py-4">
+                        <div class="card border-0">
+                            <div class="container-fluid primary-color text-center py-4">
                                 <i class="fas fa-route display-1"></i>
                             </div>
-                            <div class="container-fluid bg-gray-dark text-center py-2">
+                            <div class="container-fluid secondary-color text-center py-2">
                                 <h5 class="card-title mb-0">Rutas</h5>
                             </div>
                         </div>
@@ -74,7 +81,8 @@
         <!-- Script Bootstrap -->
         <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
         <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
-
+        <!--Own JS-->
+        <script src="../assets/js/darkMode.js"></script>
 </body>
 
 </html>

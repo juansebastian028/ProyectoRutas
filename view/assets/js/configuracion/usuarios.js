@@ -42,8 +42,11 @@ $(document).ready(function () {
       { data: "Perfilid" },
       { defaultContent: "" },
     ],
-    columnDefs: [{ visible: false, targets: [0,2,5] }],
+    columnDefs: [{ visible: false, targets: [0, 2, 5] }],
     createdRow: function (row, data, index) {
+      $(row).addClass("font-color");
+      $(".dataTables_filter input").addClass("font-color");
+
       $(row).find("td:eq(3)").html(`
                 <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
                 <button class="btn btn-sm btn-danger">Eliminar</button>
@@ -55,7 +58,7 @@ $(document).ready(function () {
           $("[name=usuarioId]").val(data.Usuarioid);
           $("[name=nombre]").val(data.Nombre);
           $("[name=apellido]").val(data.Apellido);
-          $("[name=usuario]").val(data.Usuario).prop('disabled', true);
+          $("[name=usuario]").val(data.Usuario).prop("disabled", true);
           $("[name=perfilId]").val(data.Perfilid);
 
           $("#tituloModal").text("Editar Usuario");
@@ -93,6 +96,9 @@ $(document).ready(function () {
         });
     },
   });
+  $(".dataTables_length label").addClass("font-color");
+  $(".dataTables_filter label").addClass("font-color");
+  $(".dataTables_info").addClass("font-color");
 });
 
 $("#frm").on("submit", function (e) {
@@ -114,7 +120,7 @@ $("#frm").on("submit", function (e) {
           dataTable.ajax.reload();
           $("#frm").trigger("reset");
           $("#modalRegistro").modal("hide");
-        }else if(data == 2){
+        } else if (data == 2) {
           alertify.warning("El nombre de usuario ya existe");
         } else {
           alertify.error("Ocurrio un error al guardar el registro");
@@ -151,17 +157,16 @@ $("#frm").on("submit", function (e) {
 });
 
 $("#modalRegistro").on("hide.bs.modal", function () {
-
   $("#frm").trigger("reset");
   $("[name=usuarioId]").val("");
-  $("[name=usuario]").prop('disabled', false);
-  
+  $("[name=usuario]").prop("disabled", false);
+
   $("#tituloModal").text("Registrar Usuario");
 });
 
-$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-  $($.fn.dataTable.tables({ visible: true, api: true })).DataTable()
-     .columns.adjust()
-     .responsive.recalc();
+$('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+  $($.fn.dataTable.tables({ visible: true, api: true }))
+    .DataTable()
+    .columns.adjust()
+    .responsive.recalc();
 });
- 

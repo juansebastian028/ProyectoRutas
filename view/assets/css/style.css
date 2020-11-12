@@ -1,7 +1,25 @@
+:root {
+  --primary-color: #e5e5e5;
+  --secondary-color: #c4c4c4;
+  --font-color: #222;
+  --bg-color: #fff;
+  --nav-color: #323232;
+}
+
+[data-theme="dark"] {
+  --primary-color: #666666;
+  --secondary-color: #4c4c4c;
+  --font-color: #e1e1ff;
+  --bg-color: #222;
+}
 html,
 body {
   height: 100%;
-  overflow-x: hidden;
+  background-color: var(--bg-color);
+}
+
+.font-color{
+  color: var(--font-color) !important;
 }
 
 .height--100 {
@@ -10,7 +28,7 @@ body {
 
 .vertical-menu {
   width: 8rem;
-  background-color: #e5e5e5;
+  background-color: var(--primary-color);
 }
 
 .vertical-menu__link {
@@ -19,22 +37,22 @@ body {
   justify-content: center;
   flex-direction: column;
   padding: 0.5rem;
-  color: #222;
-  border: 1px solid #cccccc;
+  color: var(--font-color);
+  border: 1px solid var(--secondary-color);
 }
 
 .link-icon:hover,
 .vertical-menu__link:hover {
   text-decoration: none;
-  color: #222;
+  color: var(--font-color);
 }
 
 .is-active {
-  background-color: #cccccc;
+  background-color: var(--secondary-color);
 }
 
 .link-icon {
-  color: #222;
+  color: var(--font-color);
 }
 
 .vertical-menu__icon {
@@ -47,12 +65,67 @@ body {
   font-weight: 600;
 }
 
-.bg-gray-dark {
-  background-color: #c4c4c4;
+.switch {
+  position: relative;
+  width: 60px;
+  height: 34px;
+}
+.switch__checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch__slider{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+.switch__slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
 }
 
-.bg-gray {
-  background-color: #e0e0e0;
+.switch__checkbox:checked + .switch__slider {
+  background-color: #66BB6A;
+}
+
+.switch__checkbox:focus + .switch__slider {
+  box-shadow: 0 0 1px #66BB6A;
+}
+
+.switch__checkbox:checked + .switch__slider:before {
+  transform: translateX(26px);
+}
+
+.switch__round {
+  border-radius: 34px;
+}
+
+.switch__round:before {
+  border-radius: 50%;
+}
+
+.secondary-color {
+  background-color: var(--secondary-color);
+}
+
+.primary-color {
+  background-color: var(--primary-color);
+}
+
+.bg-black{
+  background-color: var(--nav-color);
 }
 
 .table-content {
@@ -60,7 +133,9 @@ body {
   width: 100%;
   overflow-y: auto;
   max-height: 200px;
+
 }
+
 #tblTrayectos {
   width: 100%;
 }

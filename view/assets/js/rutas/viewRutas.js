@@ -16,12 +16,12 @@ const drawCards = (arrData) => {
     if (((index + 1) % cont) % 6 === 0) {
       cardTemplate += `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
           <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
-              <div class="card">
-                  <div class="container-fluid bg-gray text-center py-4">
-                      <i class="fas fa-bus display-1"></i>
+              <div class="card border-0">
+                  <div class="container-fluid primary-color text-center py-4">
+                      <i class="fas fa-bus display-1 font-color"></i>
                   </div>
-                  <div class="container-fluid bg-gray-dark text-center py-2">
-                      <h5 class="card-title mb-0">${element.Numero}</h5>
+                  <div class="container-fluid secondary-color text-center py-2">
+                      <h5 class="card-title mb-0 font-color">${element.Numero}</h5>
                   </div>
               </div>
           </a>
@@ -32,12 +32,12 @@ const drawCards = (arrData) => {
     } else {
       cardTemplate += `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
           <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
-              <div class="card">
-                  <div class="container-fluid bg-gray text-center py-4">
-                      <i class="fas fa-bus display-1"></i>
+              <div class="card border-0">
+                  <div class="container-fluid primary-color text-center py-4">
+                      <i class="fas fa-bus display-1 font-color"></i>
                   </div>
-                  <div class="container-fluid bg-gray-dark text-center py-2">
-                      <h5 class="card-title mb-0">${element.Numero}</h5>
+                  <div class="container-fluid secondary-color text-center py-2">
+                      <h5 class="card-title mb-0 font-color">${element.Numero}</h5>
                   </div>
               </div>
           </a>

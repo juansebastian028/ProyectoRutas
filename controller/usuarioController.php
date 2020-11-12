@@ -50,7 +50,7 @@ if ($opcion === "login") {
     $contrasena = $_POST['contrasena'];
     $perfilId = $_POST['perfilId'];
     $ContrasenaEncriptada = "";
-    if ($contrasena != "") {
+    if ($contrasena !== "") {
         $ContrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
     }
 

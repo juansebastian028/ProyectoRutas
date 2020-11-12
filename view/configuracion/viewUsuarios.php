@@ -29,7 +29,7 @@
     }
     ?>
     <!-- Nav -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-black">
         <a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="../../helpers/cerrarSesion.php">Cerrar Sesión</a>
@@ -39,23 +39,27 @@
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
-            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
-                <i class="vertical-menu__icon fas fa-cog"></i>
-                <h4 class="vertical-menu__title">Configuración</h4>
-            </a>
-
+            <div class="text-center my-2">
+                <label class="switch">
+                    <input class="switch__checkbox" type="checkbox">
+                    <span class="switch__slider switch__round"></span>
+                </label>
+                <h4 class="vertical-menu__title font-color">Dark Mode</h4>
+            </div>
             <a class="vertical-menu__link" href="../rutas/viewRutas.php">
                 <i class="vertical-menu__icon fas fa-route"></i>
                 <h4 class="vertical-menu__title"> Rutas</h4>
+            </a>
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "configuracion") ? 'is-active' : '' ?>" href="viewConfiguracion.php">
+                <i class="vertical-menu__icon fas fa-cog"></i>
+                <h4 class="vertical-menu__title">Configuración</h4>
             </a>
         </div>
 
         <div class="container-fluid">
             <div class="row p-0">
-                <div class="bg-light ml-3 mr-3 mt-2 mb-4 w-100 text-center">
-                    <div class="text-dark">
-                        <h5 class="display-4">Usuarios</h5>
-                    </div>
+                <div class="ml-3 mr-3 mt-2 mb-4 w-100 text-center">
+                    <h5 class="display-4 font-color">Usuarios</h5>
                 </div>
                 <div class="col-2 mb-4">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
@@ -80,7 +84,7 @@
             </div>
         </div>
     </div>
-
+    <!--Modal Registro-->
     <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -130,13 +134,14 @@
     <!-- Script Bootstrap -->
     <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
     <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
-
+    <!-- Script DataTables -->
     <script src="../assets/frameworks/dataTables/js/jquery.dataTables.min.js"></script>
     <script src="../assets/frameworks/dataTables/js/dataTables.bootstrap4.js"></script>
-
+    <!-- Script Altertify -->
     <script src="../assets/frameworks/alertify/alertify.js"></script>
-
+    <!-- Own JS -->
     <script src="../assets/js/configuracion/usuarios.js"></script>
+    <script src="../assets/js/darkMode.js"></script>
 
 
 </body>

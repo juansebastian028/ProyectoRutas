@@ -43,6 +43,7 @@ $(document).ready(function () {
     ],
     columnDefs: [{ visible: false, targets: [0] }],
     createdRow: function (row, data, index) {
+      $(row).addClass("font-color");
       $(row).find("td:eq(4)").html(`
                 <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
                 <button class="btn btn-sm btn-danger">Eliminar</button>
@@ -133,6 +134,9 @@ $(document).ready(function () {
         });
     },
   });
+  $(".dataTables_length label").addClass("font-color");
+  $(".dataTables_filter label").addClass("font-color");
+  $(".dataTables_info").addClass("font-color");
 });
 
 $("#frm").on("submit", function (e) {
@@ -237,8 +241,9 @@ $("#btnModalMapa").click(function (e) {
   e.preventDefault();
 });
 
-$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-  $($.fn.dataTable.tables({ visible: true, api: true })).DataTable()
-     .columns.adjust()
-     .responsive.recalc();
+$('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+  $($.fn.dataTable.tables({ visible: true, api: true }))
+    .DataTable()
+    .columns.adjust()
+    .responsive.recalc();
 });

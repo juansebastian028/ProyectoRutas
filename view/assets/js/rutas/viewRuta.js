@@ -29,13 +29,13 @@ arrTrayectos.forEach((element) => {
   if (element.Tipo === "Ida") {
     contentTablaIda += `
       <tr>
-        <td>${element.Trayecto}</td>
+        <td class="font-color">${element.Trayecto}</td>
       </tr>`;
 
   } else {
     contentTablaVuelta += `
     <tr>
-      <td>${element.Trayecto}</td>
+      <td class="font-color">${element.Trayecto}</td>
     </tr>`;
 
   }

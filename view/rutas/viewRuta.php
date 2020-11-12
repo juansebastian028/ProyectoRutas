@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
 
 <body>
     <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <a class="btn btn-outline-light" href="viewRutas.php">Volver</a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="<?= isset($_SESSION["username"]) ?  '../../helpers/cerrarSesion.php' : '../login/viewLogin.php' ?>">
@@ -48,19 +48,21 @@ if (isset($_GET['id'])) {
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
+            <div class="text-center my-2">
+                <label class="switch">
+                    <input class="switch__checkbox" type="checkbox">
+                    <span class="switch__slider switch__round"></span>
+                </label>
+                <h4 class="vertical-menu__title font-color">Dark Mode</h4>
+            </div>
+            <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "rutas") ? 'is-active' : '' ?>" href="viewRutas.php">
+                <i class="vertical-menu__icon fas fa-route"></i>
+                <h4 class="vertical-menu__title">Rutas</h4>
+            </a>
             <?php if (isset($_SESSION["username"])) : ?>
                 <a class="vertical-menu__link" href="../configuracion/viewConfiguracion.php">
                     <i class="vertical-menu__icon fas fa-cog"></i>
                     <h4 class="vertical-menu__title">Configuración</h4>
-                </a>
-                <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "rutas") ? 'is-active' : '' ?>" href="viewRutas.php">
-                    <i class="vertical-menu__icon fas fa-route"></i>
-                    <h4 class="vertical-menu__title">Rutas</h4>
-                </a>
-            <?php else : ?>
-                <a class="vertical-menu__link <?= validateRoute($_SERVER["REQUEST_URI"], "rutas") ? 'is-active' : '' ?>" href="viewRutas.php">
-                    <i class="vertical-menu__icon fas fa-route"></i>
-                    <h4 class="vertical-menu__title">Rutas</h4>
                 </a>
             <?php endif ?>
         </div>
@@ -102,9 +104,11 @@ if (isset($_GET['id'])) {
         <!-- Script Bootstrap -->
         <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
         <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
+        <!--Own JS-->
         <script>
             let arrTrayectos = <?= json_encode($arrTrayectos) ?>;
         </script>
+        <script src="../assets/js/darkMode.js"></script>
         <script src="../assets/js/rutas/viewRuta.js"></script>
 
 
