@@ -15,7 +15,7 @@
 html,
 body {
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: var(--bg-color);
 }
 
@@ -139,4 +139,10 @@ body {
 
 #tblTrayectos {
   width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+  body{
+    overflow-y: auto;
+  }
 }
