@@ -11,19 +11,20 @@ if ($opcion === "login") {
     $password = $_POST["password"];
 
     if (empty($username) || empty($password)) {
-        $esValido = false;
+        $user = false;
     } else {
-        $esValido = $usuario->validarUsuario($username, $password);
+        $user = $usuario->validarUsuario($username, $password);
     }
-
-    if ($esValido) {
-
-        session_start();
-        $_SESSION["username"] = $username;
-    }
-
-    echo $esValido;
     
+    if ($user != false) {
+        
+        session_start();
+        $_SESSION["username"] = $user;
+        
+    }
+
+    echo $user;
+
 } elseif ($opcion === "registrarse") {
 
     $nombre = $_POST['nombre'];

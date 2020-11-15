@@ -26,7 +26,7 @@ class Usuario
 
         if ($user && password_verify($password, $password_ecriptada)) {
 
-            return true;
+            return $user['Nombre'].' '.$user['Apellido'];
         } else {
 
             return false;

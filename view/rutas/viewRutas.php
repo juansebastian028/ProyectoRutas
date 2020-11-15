@@ -20,13 +20,32 @@
     session_start();
     ?>
     <!-- Nav -->
-    <nav class="navbar navbar-dark bg-black">
-        <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="<?= isset($_SESSION["username"]) ?  '../../helpers/cerrarSesion.php' : '../login/viewLogin.php' ?>">
-                <?= isset($_SESSION["username"]) ? 'Cerrar Sesión' : 'Iniciar Sesión' ?>
-            </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <?php if (isset($_SESSION['username'])) : ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?= $_SESSION["username"] ?>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="nav-link text-dark" href="../../helpers/cerrarSesion.php">
+                                Cerrar Sesión
+                            </a>
+                        </div>
+                    </li>
+                <?php else : ?>
+                    <li class="nav-item"> <a class="nav-link" href="../login/viewLogin.php">Iniciar Sesión</a> </li>
+                <?php endif; ?>
+            </ul>
+
         </div>
     </nav>
+
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
         <div class="vertical-menu">
@@ -65,12 +84,12 @@
         </div>
     </div>
 
-        <!-- Script Bootstrap -->
-        <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
-        <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
-        <!--Own JS-->
-        <script src="../assets/js/darkMode.js"></script>
-        <script src="../assets/js/rutas/viewRutas.js"></script>
+    <!-- Script Bootstrap -->
+    <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
+    <!--Own JS-->
+    <script src="../assets/js/darkMode.js"></script>
+    <script src="../assets/js/rutas/viewRutas.js"></script>
 
 </body>
 
