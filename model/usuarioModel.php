@@ -86,30 +86,28 @@ class Admin extends Usuario
         $idUsuario,
         $nombre,
         $apellido,
-        $nombreUsuario,
         $contrasenaUsuario,
         $perfilId
     ) {
 
 
         if ($contrasenaUsuario == '') {
-            $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Perfilid=? WHERE Usuarioid=?";
+            $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Perfilid=? WHERE Usuarioid=?";
         } else {
-            $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Usuario=?, Contrasena=?, Perfilid=? WHERE Usuarioid=?";
+            $sql = "UPDATE usuario SET Nombre=?, Apellido=?, Contrasena=?, Perfilid=? WHERE Usuarioid=?";
         }
 
         $result = $this->db->prepare($sql);
 
         if ($contrasenaUsuario == '') {
-            $result->bind_param("sssii", $nombre, $apellido, $nombreUsuario, intval($perfilId), $idUsuario);
+            $result->bind_param("ssii", $nombre, $apellido, $perfilId, $idUsuario);
         } else {
             $result->bind_param(
-                "ssssii",
+                "sssii",
                 $nombre,
                 $apellido,
-                $nombreUsuario,
                 $contrasenaUsuario,
-                intval($perfilId),
+                $perfilId,
                 $idUsuario
             );
         }
