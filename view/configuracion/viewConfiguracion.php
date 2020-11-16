@@ -35,7 +35,7 @@
                         <?= $_SESSION["username"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="nav-link text-dark" href="../../helpers/cerrarSesion.php">
+                        <a class="dropdown-item" href="../../helpers/cerrarSesion.php">
                             Cerrar Sesión
                         </a>
                     </div>

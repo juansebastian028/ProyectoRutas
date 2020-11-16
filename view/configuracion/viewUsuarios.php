@@ -30,7 +30,7 @@
     ?>
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-		<a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
+        <a class="btn btn-outline-light" href="viewConfiguracion.php">Volver</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +42,7 @@
                         <?= $_SESSION["username"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="nav-link text-dark" href="../../helpers/cerrarSesion.php">
+                        <a class="dropdown-item" href="../../helpers/cerrarSesion.php">
                             Cerrar Sesión
                         </a>
                     </div>
@@ -74,14 +74,14 @@
 
         <div class="container-fluid">
             <div class="row p-0">
-                <div class="ml-3 mr-3 mt-2 mb-4 w-100 text-center">
+                <div class="ml-3 mr-3 mt-2 mb-4 col-12 text-center">
                     <h5 class="display-4 font-color">Usuarios</h5>
                 </div>
                 <div class="col-2 mb-4">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
                 </div>
                 <div class="col-12">
-                    <table class="table table-bordered table-sm table-hover table-fixed table-striped" id="tblUsuarios">
+                    <table class="table table-striped table-bordered table-sm" id="tblUsuarios">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th>Id</th>

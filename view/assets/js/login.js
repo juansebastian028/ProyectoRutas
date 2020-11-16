@@ -10,7 +10,7 @@ $("#form").submit(function (e) {
     processData: false,
     contentType: false,
     success: function (resp) {
-      if (resp != false) {
+      if (resp) {
         location.href = "../../view/rutas/viewRutas.php";
       } else {
         alertify.error("Usuario o contraseña incorrecta");

@@ -11,20 +11,23 @@ if ($opcion === "login") {
     $password = $_POST["password"];
 
     if (empty($username) || empty($password)) {
-        $user = false;
+        $esValido = false;
+        $fullname = false;
     } else {
-        $user = $usuario->validarUsuario($username, $password);
+        $fullname = $usuario->validarUsuario($username, $password);
     }
-    
-    if ($user != false) {
-        
+
+    if ($fullname !== false) {
+
         session_start();
-        $_SESSION["username"] = $user;
-        
+        $_SESSION["username"] = $fullname;
+        $esValido = true;
+        echo $esValido;
+    } else {
+
+        $esValido = false;
+        echo $esValido;
     }
-
-    echo $user;
-
 } elseif ($opcion === "registrarse") {
 
     $nombre = $_POST['nombre'];
@@ -51,6 +54,7 @@ if ($opcion === "login") {
     $contrasena = $_POST['contrasena'];
     $perfilId = $_POST['perfilId'];
     $ContrasenaEncriptada = "";
+    echo $usuario;
     if ($contrasena !== "") {
         $ContrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
     }

@@ -136,6 +136,7 @@ $(document).ready(function () {
   });
   $(".dataTables_length label").addClass("font-color");
   $(".dataTables_filter label").addClass("font-color");
+  $("input[type='search']").removeClass("font-color").addClass("font-color--black");
   $(".dataTables_info").addClass("font-color");
 });
 
