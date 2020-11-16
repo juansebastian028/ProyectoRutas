@@ -69,15 +69,15 @@
         </div>
 
         <div class="container-fluid" id="container-rutas">
-            <div id="formSearch" class="container my-2">
+            <div id="formSearch" class="container mt-2">
                 <form class="d-flex">
                     <input name="inputSearch" class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">
                 </form>
             </div>
             <div id="cards-container" class="row d-flex flex-row justify-content-center">
             </div>
-            <div class="d-flex justify-content-center mt-2">
-                <ul class="pagination" id="rutas-pagination">
+            <div class="d-flex justify-content-center">
+                <ul class="pagination m-0" id="rutas-pagination">
 
                 </ul>
             </div>

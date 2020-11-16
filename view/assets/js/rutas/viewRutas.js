@@ -15,7 +15,7 @@ const drawCards = (arrData) => {
   arrData.forEach((element, index) => {
     if (((index + 1) % cont) % 6 === 0) {
       cardTemplate += `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-          <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
+          <a class="d-block w-100 p-0 link-icon" href="viewRuta.php?id=${element.RutaId}">
               <div class="card border-0">
                   <div class="container-fluid primary-color text-center py-4">
                       <i class="fas fa-bus display-1 font-color"></i>
@@ -31,7 +31,7 @@ const drawCards = (arrData) => {
       cont += 6;
     } else {
       cardTemplate += `<div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-          <a href="viewRuta.php?id=${element.RutaId}" class="btn d-block w-100 p-0">
+          <a class="d-block w-100 p-0 link-icon" href="viewRuta.php?id=${element.RutaId}">
               <div class="card border-0">
                   <div class="container-fluid primary-color text-center py-4">
                       <i class="fas fa-bus display-1 font-color"></i>
