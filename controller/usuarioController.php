@@ -50,7 +50,6 @@ if ($opcion === "login") {
     $usuarioId = $_POST['usuarioId'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
     $perfilId = $_POST['perfilId'];
     $ContrasenaEncriptada = "";
@@ -59,5 +58,5 @@ if ($opcion === "login") {
         $ContrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
     }
 
-    echo $admin->actualizarUsuario($usuarioId, $nombre, $apellido, $usuario, $ContrasenaEncriptada, $perfilId);
+    echo $admin->actualizarUsuario($usuarioId, $nombre, $apellido, $ContrasenaEncriptada, $perfilId);
 }
