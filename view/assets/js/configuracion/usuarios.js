@@ -4,6 +4,8 @@ $(document).ready(function () {
     opcion: "consulta",
   };
   dataTable = $("#tblUsuarios").DataTable({
+    autoWidth: false,
+    responsive: true,
     language: {
       decimal: "",
       emptyTable: "No hay información",
