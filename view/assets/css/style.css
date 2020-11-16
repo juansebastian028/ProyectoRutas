@@ -15,7 +15,7 @@
 html,
 body {
   height: 100%;
-  /*overflow: hidden;*/
+  overflow-x: hidden;
   background-color: var(--bg-color);
 }
 
@@ -145,8 +145,8 @@ body {
   width: 100%;
 }
 
-/*@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) {
   body{
     overflow-y: auto;
   }
-}*/
+}
