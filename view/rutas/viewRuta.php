@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
-        <div class="vertical-menu">
+        <div class="vertical-menu col-2 col-md-2 col-lg-2 col-xl-1 p-0">
             <div class="text-center my-2">
                 <label class="switch">
                     <input class="switch__checkbox" type="checkbox">
@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
             <?php endif ?>
         </div>
 
-        <div class="container-fluid d-flex flex-column align-content-center justify-content-center">
+        <div class="col-10 col-md-10 col-lg-10 col-xl-11 d-flex flex-column align-content-center justify-content-center">
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-8">
                     <div id='map' style='width: 100%; height: 500px;'></div>

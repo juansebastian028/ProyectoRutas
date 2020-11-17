@@ -54,7 +54,7 @@
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
-        <div class="vertical-menu">
+        <div class="vertical-menu col-2 col-md-2 col-lg-2 col-xl-1 p-0">
             <div class="text-center my-2">
                 <label class="switch">
                     <input class="switch__checkbox" type="checkbox">
@@ -72,16 +72,14 @@
             </a>
         </div>
 
-        <div class="container-fluid">
-            <div class="row p-0">
-                <div class="ml-3 mr-3 mt-2 mb-4 col-12 text-center">
+        <div class="col-10 col-md-10 col-lg-10 col-xl-11">
+            <div class="row">
+                <div class="mt-2 mb-4 col-12 text-center">
                     <h5 class="display-4 font-color">Usuarios</h5>
                 </div>
-                <div class="col-2 mb-4">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
-                </div>
-                <div class="col-12">
-                    <table class="table table-striped table-bordered table-sm" id="tblUsuarios">
+                <div class="col-sm-11 m-auto">
+                <button class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
+                    <table class="table table-striped table-bordered table-sm display nowrap" id="tblUsuarios" style="width: 100%;">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th>Id</th>

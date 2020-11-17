@@ -47,7 +47,7 @@
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
-        <div class="vertical-menu">
+        <div class="vertical-menu col-2 col-md-2 col-lg-2 col-xl-1 p-0">
             <div class="text-center my-2">
                 <label class="switch">
                     <input class="switch__checkbox" type="checkbox">
@@ -65,7 +65,7 @@
             </a>
         </div>
 
-        <div class="container-fluid">
+        <div class="col-10 col-md-10 col-lg-10 col-xl-11">
             <div class="row d-flex flex-row justify-content-center align-content-center height--100">
                 <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
                     <a class="d-block w-100 p-0 link-icon" href="viewUsuarios.php">

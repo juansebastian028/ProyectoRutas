@@ -4,8 +4,9 @@ $(document).ready(function () {
     opcion: "consulta",
   };
   dataTable = $("#tblRutas").DataTable({
-    autoWidth: false,
+    autoWidth: true,
     responsive: true,
+    scrollX: true,
     language: {
       decimal: "",
       emptyTable: "No hay información",
@@ -136,6 +137,7 @@ $(document).ready(function () {
   });
   $(".dataTables_length label").addClass("font-color");
   $(".dataTables_filter label").addClass("font-color");
+  $(".dataTables_empty").addClass("font-color");
   $("input[type='search']").removeClass("font-color").addClass("font-color--black");
   $(".dataTables_info").addClass("font-color");
 });
@@ -242,9 +244,4 @@ $("#btnModalMapa").click(function (e) {
   e.preventDefault();
 });
 
-$('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
-  $($.fn.dataTable.tables({ visible: true, api: true }))
-    .DataTable()
-    .columns.adjust()
-    .responsive.recalc();
-});
+

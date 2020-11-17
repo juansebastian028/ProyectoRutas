@@ -18,7 +18,6 @@
 
 body {
   margin: 0;
-  overflow-x: hidden;
   background-color: var(--bg-color);
 }
 
@@ -35,8 +34,9 @@ body {
 }
 
 .vertical-menu {
-  width: 8rem;
   background-color: var(--primary-color);
+   max-width: 7rem; 
+   min-width: 3.5rem;
 }
 
 .vertical-menu__link {
@@ -69,7 +69,7 @@ a:hover {
 
 .vertical-menu__title {
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
@@ -147,6 +147,42 @@ a:hover {
 #tblTrayectos {
   width: 100%;
 }
+
+@media only screen and (max-width: 576px) {
+  .vertical-menu__title{
+    font-size: 0.6rem;
+  }
+  .vertical-menu__icon{
+    font-size: 2.5rem;
+  }
+
+}
+
+@media only screen and (max-width: 411px) {
+  .vertical-menu__title{
+    font-size: 0.45rem;
+  }
+  .vertical-menu__icon{
+    font-size: 2rem;
+  }
+
+  .switch{
+    width: 40px;
+    height: 24px;
+  }
+
+  .switch__slider:before {
+    content: "";
+    height: 16px;
+    width: 16px;
+  }
+
+  .switch__checkbox:checked + .switch__slider:before {
+    transform: translateX(16px);
+  }
+
+}
+
 
 
 

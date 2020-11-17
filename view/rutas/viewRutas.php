@@ -48,7 +48,7 @@
 
     <div class="d-flex d-row height--100">
         <!-- Vertical Menu -->
-        <div class="vertical-menu">
+        <div class="vertical-menu col-2 col-md-2 col-lg-2 col-xl-1 p-0">
             <div class="text-center my-2">
                 <label class="switch">
                     <input class="switch__checkbox" type="checkbox">
@@ -68,7 +68,7 @@
             <?php endif ?>
         </div>
 
-        <div class="container-fluid" id="container-rutas">
+        <div class="col-10 col-md-10 col-lg-10 col-xl-11" id="container-rutas">
             <div id="formSearch" class="container mt-2">
                 <form class="d-flex">
                     <input name="inputSearch" class="form-control mr-2" type="search" placeholder="Escribe tu búsqueda aquí" aria-label="Search">

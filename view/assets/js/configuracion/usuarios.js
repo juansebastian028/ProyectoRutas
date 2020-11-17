@@ -4,8 +4,9 @@ $(document).ready(function () {
     opcion: "consulta",
   };
   dataTable = $("#tblUsuarios").DataTable({
-    autoWidth: false,
+    autoWidth: true,
     responsive: true,
+    scrollX: true,
     language: {
       decimal: "",
       emptyTable: "No hay información",
@@ -98,6 +99,7 @@ $(document).ready(function () {
   });
   $(".dataTables_length label").addClass("font-color");
   $(".dataTables_filter label").addClass("font-color");
+  $(".dataTables_empty").addClass("font-color");
   $("input[type='search']")
     .removeClass("font-color")
     .addClass("font-color--black");
