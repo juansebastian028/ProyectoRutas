@@ -21,7 +21,7 @@ body{
 
 .form{
 	background: rgba(230,228,219,0.6);
-	width: 450px;
+	width: 415px;
 	padding: 4rem 0;
 }
 
@@ -43,5 +43,9 @@ input{
 	margin-right: auto !important;
 }
 
-
+@media only screen and (max-width: 576px) {
+  .form{
+	  width: 90%;
+  }
+}
 
