@@ -53,6 +53,8 @@ if ($opcion === "login") {
     $contrasena = $_POST['contrasena'];
     $perfilId = $_POST['perfilId'];
     $ContrasenaEncriptada = "";
+    session_start();
+    $_SESSION["arrUser"]["Perfilid"] = $perfilId;
 
     if ($contrasena !== "") {
         $ContrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
