@@ -25,14 +25,14 @@ class Usuario
         $stmt->bind_param("s", $username);
 
         $stmt->execute();
-        $user = $stmt->get_result()->fetch_assoc();
+        $arrUser = $stmt->get_result()->fetch_assoc();
 
-        if ($user && password_verify($password, $password_ecriptada)) {
+        if ($arrUser && password_verify($password, $password_ecriptada)) {
 
-            return $user['Nombre'].' '.$user['Apellido'];
+            return $arrUser;
         } else {
 
-            return false;
+            return [];
         }
     }
 

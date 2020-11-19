@@ -18,8 +18,8 @@
     <?php
     require('../../helpers/validarURL.php');
     session_start();
-    if (!isset($_SESSION["username"])) {
-        header("location:../login/viewLogin.php");
+    if (!isset($_SESSION["arrUser"])) {
+        header("location:../rutas/viewRutas.php");
     }
     ?>
     <!-- Nav -->
@@ -32,7 +32,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= $_SESSION["username"] ?>
+                        <?= $_SESSION["arrUser"]["Nombre"] . " " . $_SESSION["arrUser"]["Apellido"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../../helpers/cerrarSesion.php">
@@ -67,30 +67,46 @@
 
         <div class="col-10 col-md-10 col-lg-10 col-xl-11">
             <div class="row d-flex flex-row justify-content-center align-content-center height--100">
-                <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-                    <a class="d-block w-100 p-0 link-icon" href="viewUsuarios.php">
-                        <div class="card border-0">
-                            <div class="container-fluid primary-color text-center py-4">
-                                <i class="fas fa-user display-1"></i>
+                <?php if ($_SESSION["arrUser"]["Perfilid"] === 1) : ?>
+                    <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
+                        <a class="d-block w-100 p-0 link-icon" href="viewUsuarios.php">
+                            <div class="card border-0">
+                                <div class="container-fluid primary-color text-center py-4">
+                                    <i class="fas fa-user display-1"></i>
+                                </div>
+                                <div class="container-fluid secondary-color text-center py-2">
+                                    <h5 class="card-title mb-0">Usuarios</h5>
+                                </div>
                             </div>
-                            <div class="container-fluid secondary-color text-center py-2">
-                                <h5 class="card-title mb-0">Usuarios</h5>
+                        </a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
+                        <a class="d-block w-100 p-0 link-icon" href="viewRutas.php">
+                            <div class="card border-0">
+                                <div class="container-fluid primary-color text-center py-4">
+                                    <i class="fas fa-route display-1"></i>
+                                </div>
+                                <div class="container-fluid secondary-color text-center py-2">
+                                    <h5 class="card-title mb-0">Rutas</h5>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
-                    <a class="d-block w-100 p-0 link-icon" href="viewRutas.php">
-                        <div class="card border-0">
-                            <div class="container-fluid primary-color text-center py-4">
-                                <i class="fas fa-route display-1"></i>
+                        </a>
+                    </div>
+                <?php else : ?>
+                    <div class="col-xs-12 col-sm-6 col-lg-3 m-2">
+                        <a class="d-block w-100 p-0 link-icon" href="viewRutas.php">
+                            <div class="card border-0">
+                                <div class="container-fluid primary-color text-center py-4">
+                                    <i class="fas fa-route display-1"></i>
+                                </div>
+                                <div class="container-fluid secondary-color text-center py-2">
+                                    <h5 class="card-title mb-0">Rutas</h5>
+                                </div>
                             </div>
-                            <div class="container-fluid secondary-color text-center py-2">
-                                <h5 class="card-title mb-0">Rutas</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
 

@@ -24,8 +24,12 @@
     <?php
     require('../../helpers/validarURL.php');
     session_start();
-    if (!isset($_SESSION["username"])) {
-        header("location:../login/viewLogin.php");
+    if (!isset($_SESSION["arrUser"])) {
+        header("location:../rutas/viewRutas.php");
+    }
+
+    if($_SESSION["arrUser"]["Perfilid"] !== 1){
+        header("location:../configuracion/viewConfiguracion.php");
     }
     ?>
     <!-- Nav -->
@@ -39,7 +43,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?= $_SESSION["username"] ?>
+                    <?= $_SESSION["arrUser"]["Nombre"] ." ". $_SESSION["arrUser"]["Apellido"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../../helpers/cerrarSesion.php">

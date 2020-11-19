@@ -12,15 +12,15 @@ if ($opcion === "login") {
 
     if (empty($username) || empty($password)) {
         $esValido = false;
-        $fullname = false;
+        $arrUser = [];
     } else {
-        $fullname = $usuario->validarUsuario($username, $password);
+        $arrUser = $usuario->validarUsuario($username, $password);
     }
 
-    if ($fullname !== false) {
+    if (!empty($arrUser)) {
 
         session_start();
-        $_SESSION["username"] = $fullname;
+        $_SESSION["arrUser"] = $arrUser;
         $esValido = true;
         echo $esValido;
     } else {

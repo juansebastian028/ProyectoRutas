@@ -27,10 +27,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <?php if (isset($_SESSION['username'])) : ?>
+                <?php if (isset($_SESSION['arrUser'])) : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?= $_SESSION["username"] ?>
+                            <?= $_SESSION["arrUser"]["Nombre"] ." ". $_SESSION["arrUser"]["Apellido"] ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="../../helpers/cerrarSesion.php">
@@ -60,7 +60,7 @@
                 <i class="vertical-menu__icon fas fa-route font-color"></i>
                 <h4 class="vertical-menu__title font-color">Rutas</h4>
             </a>
-            <?php if (isset($_SESSION["username"])) : ?>
+            <?php if (isset($_SESSION["arrUser"])) : ?>
                 <a class="vertical-menu__link" href="../configuracion/viewConfiguracion.php">
                     <i class="vertical-menu__icon fas fa-cog font-color"></i>
                     <h4 class="vertical-menu__title font-color">Configuración</h4>
