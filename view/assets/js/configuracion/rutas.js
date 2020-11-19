@@ -204,6 +204,11 @@ $("#modalRegistro").on("hide.bs.modal", function () {
   $("#tituloModal").text("Registrar Ruta");
 });
 
+$(document).on('hidden.bs.modal', '.modal', function () {
+  $('.modal:visible').length && $(document.body).addClass('modal-open');
+});
+
+
 $("#btnAgregarTrayecto").on("click", function (e) {
   e.preventDefault();
   if ($("[name=trayecto]").val() === "") {
