@@ -1,51 +1,50 @@
-html{
-	height: 100%;
+html {
+  height: 100%;
 }
 
-body{
-	background-image: url(../img/fondoLogin.jpg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
-	height: 100%;
+body {
+  background-image: url(../img/fondoLogin.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
 }
 
-.box{
-	display: flex;
-    justify-content: center;
-    align-items: center;
-	width: 100%;
-	height: 100%;
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.form{
-	background: rgba(230,228,219,0.6);
-	width: 415px;
-	padding: 4rem 0;
+.form {
+  background: rgba(230, 228, 219, 0.6);
+  width: 415px;
+  padding: 4rem 0;
 }
 
-label{
-	margin-left: 1.8rem;
+label {
+  margin-left: 1.8rem;
 }
 
-input{
-	display: block;
-	width: 90% !important;
-	margin-left: auto !important;
-	margin-right: auto !important;
+input {
+  display: block;
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-.inputs-container{
-	display: block;
-	width: 90% !important;
-	margin-left: auto !important;
-	margin-right: auto !important;
+.inputs-container {
+  display: block;
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 @media only screen and (max-width: 576px) {
-  .form{
-	  width: 90%;
+  .form {
+    width: 90%;
   }
 }
-

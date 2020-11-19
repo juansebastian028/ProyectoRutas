@@ -12,11 +12,11 @@
   --font-color: #e1e1ff;
   --bg-color: #222;
 }
-*{
+* {
   box-sizing: border-box;
 }
 
-html{
+html {
   height: 100vh;
 }
 body {
@@ -25,11 +25,11 @@ body {
   background-color: var(--bg-color);
 }
 
-.font-color{
+.font-color {
   color: var(--font-color) !important;
 }
 
-.font-color--black{
+.font-color--black {
   color: #222 !important;
 }
 
@@ -39,7 +39,7 @@ body {
 
 .vertical-menu {
   background-color: var(--primary-color);
-   max-width: 7rem; 
+  max-width: 7rem;
 }
 
 .vertical-menu__link {
@@ -51,7 +51,6 @@ body {
   color: var(--font-color);
   border: 1px solid var(--secondary-color);
 }
-
 
 a:hover {
   text-decoration: none;
@@ -86,7 +85,7 @@ a:hover {
   width: 0;
   height: 0;
 }
-.switch__slider{
+.switch__slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -94,7 +93,7 @@ a:hover {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
 }
 .switch__slider:before {
   position: absolute;
@@ -104,15 +103,15 @@ a:hover {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .switch__checkbox:checked + .switch__slider {
-  background-color: #66BB6A;
+  background-color: #66bb6a;
 }
 
 .switch__checkbox:focus + .switch__slider {
-  box-shadow: 0 0 1px #66BB6A;
+  box-shadow: 0 0 1px #66bb6a;
 }
 
 .switch__checkbox:checked + .switch__slider:before {
@@ -135,7 +134,7 @@ a:hover {
   background-color: var(--primary-color);
 }
 
-.bg-black{
+.bg-black {
   background-color: var(--nav-color);
 }
 
@@ -144,7 +143,6 @@ a:hover {
   width: 100%;
   overflow-y: auto;
   max-height: 150px;
-
 }
 
 #tblTrayectos {
@@ -152,24 +150,23 @@ a:hover {
 }
 
 @media only screen and (max-width: 576px) {
-  .vertical-menu__title{
+  .vertical-menu__title {
     font-size: 0.6rem;
   }
-  .vertical-menu__icon{
+  .vertical-menu__icon {
     font-size: 2.5rem;
   }
-
 }
 
 @media only screen and (max-width: 411px) {
-  .vertical-menu__title{
+  .vertical-menu__title {
     font-size: 0.45rem;
   }
-  .vertical-menu__icon{
+  .vertical-menu__icon {
     font-size: 2rem;
   }
 
-  .switch{
+  .switch {
     width: 40px;
     height: 24px;
   }
@@ -183,9 +180,4 @@ a:hover {
   .switch__checkbox:checked + .switch__slider:before {
     transform: translateX(16px);
   }
-
 }
-
-
-
-

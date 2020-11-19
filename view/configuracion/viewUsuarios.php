@@ -28,7 +28,7 @@
         header("location:../rutas/viewRutas.php");
     }
 
-    if($_SESSION["arrUser"]["Perfilid"] !== 1){
+    if ($_SESSION["arrUser"]["Perfilid"] !== 1) {
         header("location:../configuracion/viewConfiguracion.php");
     }
     ?>
@@ -43,7 +43,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?= $_SESSION["arrUser"]["Nombre"] ." ". $_SESSION["arrUser"]["Apellido"] ?>
+                        <?= $_SESSION["arrUser"]["Nombre"] . " " . $_SESSION["arrUser"]["Apellido"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../../helpers/cerrarSesion.php">
@@ -82,7 +82,7 @@
                     <h5 class="display-4 font-color">Usuarios</h5>
                 </div>
                 <div class="col-sm-11 m-auto">
-                <button class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
+                    <button class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
                     <table class="table table-striped table-bordered table-sm display nowrap" id="tblUsuarios" style="width: 100%;">
                         <thead class="bg-primary text-white">
                             <tr>

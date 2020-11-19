@@ -138,7 +138,9 @@ $(document).ready(function () {
   $(".dataTables_length label").addClass("font-color");
   $(".dataTables_filter label").addClass("font-color");
   $(".dataTables_empty").addClass("font-color");
-  $("input[type='search']").removeClass("font-color").addClass("font-color--black");
+  $("input[type='search']")
+    .removeClass("font-color")
+    .addClass("font-color--black");
   $(".dataTables_info").addClass("font-color");
 });
 
@@ -204,10 +206,9 @@ $("#modalRegistro").on("hide.bs.modal", function () {
   $("#tituloModal").text("Registrar Ruta");
 });
 
-$(document).on('hidden.bs.modal', '.modal', function () {
-  $('.modal:visible').length && $(document.body).addClass('modal-open');
+$(document).on("hidden.bs.modal", ".modal", function () {
+  $(".modal:visible").length && $(document.body).addClass("modal-open");
 });
-
 
 $("#btnAgregarTrayecto").on("click", function (e) {
   e.preventDefault();
@@ -248,5 +249,3 @@ $("#tblTrayectos").on("click", ".btn-danger", function (e) {
 $("#btnModalMapa").click(function (e) {
   e.preventDefault();
 });
-
-

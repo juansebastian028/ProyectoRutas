@@ -30,7 +30,7 @@
                 <?php if (isset($_SESSION['arrUser'])) : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?= $_SESSION["arrUser"]["Nombre"] ." ". $_SESSION["arrUser"]["Apellido"] ?>
+                            <?= $_SESSION["arrUser"]["Nombre"] . " " . $_SESSION["arrUser"]["Apellido"] ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="../../helpers/cerrarSesion.php">

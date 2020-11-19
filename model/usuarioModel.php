@@ -14,10 +14,10 @@ class Usuario
     {
 
         $password_ecriptada = $this->getContrasena($username);
-        if($password_ecriptada === ""){
+        if ($password_ecriptada === "") {
             return false;
         }
-        
+
         $sql = 'SELECT * FROM usuario WHERE Usuario = ?';
 
         $stmt = $this->db->prepare($sql);
@@ -48,12 +48,11 @@ class Usuario
         $stmt->execute();
         $password = $stmt->get_result()->fetch_assoc();
 
-        if($password){
+        if ($password) {
             return $password['Contrasena'];
-        }else{
+        } else {
             return "";
         }
-    
     }
 }
 

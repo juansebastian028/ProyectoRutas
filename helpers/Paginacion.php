@@ -1,6 +1,7 @@
 <?php
 
-class Paginacion{
+class Paginacion
+{
 
     private $currentPage;
     private $startRowNumber;
@@ -8,41 +9,44 @@ class Paginacion{
     private $totalPages;
     private $numRows;
 
-    public function __construct($numRows,$limitRowNumber){
-        
+    public function __construct($numRows, $limitRowNumber)
+    {
+
         $this->numRows = $numRows;
         $this->limitRowNumber = $limitRowNumber;
         $this->currentPage = 1;
         $this->validateStartRowNumber();
-        $this->totalPages = ceil($this->numRows/$this->limitRowNumber);
-
+        $this->totalPages = ceil($this->numRows / $this->limitRowNumber);
     }
 
-    public function updateCurrentPage($currentPage){
-        
+    public function updateCurrentPage($currentPage)
+    {
+
         $this->currentPage = $currentPage;
         $this->validateStartRowNumber();
-        
     }
 
-    private function validateStartRowNumber(){
+    private function validateStartRowNumber()
+    {
 
-        $this->startRowNumber = ($this->currentPage-1) * $this->limitRowNumber;
+        $this->startRowNumber = ($this->currentPage - 1) * $this->limitRowNumber;
     }
 
     //Getters
-    public function getTotalPages(){
+    public function getTotalPages()
+    {
         return $this->totalPages;
     }
 
-    
-    public function getStartRowNumber(){
+
+    public function getStartRowNumber()
+    {
         return $this->startRowNumber;
     }
 
-    
-    public function getLimitRowNumber(){
+
+    public function getLimitRowNumber()
+    {
         return $this->limitRowNumber;
     }
-
 }
