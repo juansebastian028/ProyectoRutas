@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rutas </title>
     <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="../assets/frameworks/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/libs/bootstrap/css/bootstrap.min.css">
     <!--Own CSS-->
     <link rel="stylesheet" href="../assets/css/style.css">
     <!--Font Awesome-->
@@ -85,8 +85,8 @@
     </div>
 
     <!-- Script Bootstrap -->
-    <script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
-    <script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/libs/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/libs/bootstrap/js/bootstrap.min.js"></script>
     <!--Own JS-->
     <script src="../assets/js/darkMode.js"></script>
     <script src="../assets/js/rutas/viewRutas.js"></script>

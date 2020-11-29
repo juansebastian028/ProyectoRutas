@@ -7,17 +7,17 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Rutas</title>
 	<!-- CSS Bootstrap -->
-	<link rel="stylesheet" href="../assets/frameworks/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/libs/bootstrap/css/bootstrap.min.css">
 	<!--Own CSS-->
 	<link rel="stylesheet" href="../assets/css/style.css">
 	<!--Font Awesome-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<!-- datatables -->
-	<link rel="stylesheet" href="../assets/frameworks/dataTables/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="../assets/frameworks/dataTables/css/dataTables.bootstrap4.css">
+	<link rel="stylesheet" href="../assets/libs/dataTables/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/libs/dataTables/css/dataTables.bootstrap4.css">
 	<!-- Alertify -->
-	<link rel="stylesheet" href="../assets/frameworks/alertify/css/alertify.min.css" />
-	<link rel="stylesheet" href="../assets/frameworks/alertify/css/themes/default.min.css" />
+	<link rel="stylesheet" href="../assets/libs/alertify/css/alertify.min.css" />
+	<link rel="stylesheet" href="../assets/libs/alertify/css/themes/default.min.css" />
 	<!--Mapbox-->
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
@@ -201,13 +201,13 @@
 		</div>
 	</div>
 	<!-- Script Bootstrap -->
-	<script src="../assets/frameworks/bootstrap/js/jquery-3.5.1.min.js"></script>
-	<script src="../assets/frameworks/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/libs/bootstrap/js/jquery-3.5.1.min.js"></script>
+	<script src="../assets/libs/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Script DataTables -->
-	<script src="../assets/frameworks/dataTables/js/jquery.dataTables.min.js"></script>
-	<script src="../assets/frameworks/dataTables/js/dataTables.bootstrap4.js"></script>
+	<script src="../assets/libs/dataTables/js/jquery.dataTables.min.js"></script>
+	<script src="../assets/libs/dataTables/js/dataTables.bootstrap4.js"></script>
 	<!-- Script Altertify -->
-	<script src="../assets/frameworks/alertify/alertify.js"></script>
+	<script src="../assets/libs/alertify/alertify.js"></script>
 	<!-- Own JS -->
 	<script src="../assets/js/configuracion/mapa.js"></script>
 	<script src="../assets/js/configuracion/rutas.js"></script>
