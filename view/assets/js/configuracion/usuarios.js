@@ -41,17 +41,15 @@ $(document).ready(function () {
       { data: "Usuario" },
       { data: "Perfil" },
       { data: "Perfilid" },
-      { defaultContent: "" },
+      {
+        defaultContent: `<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
+      <button class="btn btn-sm btn-danger">Eliminar</button>`,
+      },
     ],
     columnDefs: [{ visible: false, targets: [0, 2, 5] }],
     createdRow: function (row, data, index) {
       $(row).addClass("font-color");
       $(".dataTables_filter input").addClass("font-color");
-
-      $(row).find("td:eq(3)").html(`
-                <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
-                <button class="btn btn-sm btn-danger">Eliminar</button>
-            `);
 
       $(row)
         .find(".btn-warning")

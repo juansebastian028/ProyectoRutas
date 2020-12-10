@@ -40,16 +40,14 @@ $(document).ready(function () {
       { data: "Placa" },
       { data: "Ida" },
       { data: "Vuelta" },
-      { defaultContent: "" },
+      {
+        defaultContent: `<button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
+      <button class="btn btn-sm btn-danger">Eliminar</button>`,
+      },
     ],
     columnDefs: [{ visible: false, targets: [0] }],
     createdRow: function (row, data, index) {
       $(row).addClass("font-color");
-      $(row).find("td:eq(4)").html(`
-                <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modalRegistro">Editar</button>
-                <button class="btn btn-sm btn-danger">Eliminar</button>
-            `);
-
       $(row)
         .find(".btn-warning")
         .on("click", function () {
